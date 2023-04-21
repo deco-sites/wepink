@@ -1,9 +1,9 @@
 // Daisi UI theme
 export const theme = {
-  "primary": "hsl(330, 100%, 50%)",
-  "secondary": "hsl(180 100% 10%)",
+  "primary": "hsl(180 100% 10%)",
+  "secondary": "hsl(0 39% 39%)",
   "accent": "hsl(150 100% 50%)",
-  "neutral": "hsl(0 0% 0%)",
+  "neutral": "hsl(0 0% 20%)",
   "base-100": "hsl(0 0% 100%)",
   "success": "hsl(150 62% 95%)",
   "warning": "hsl(43 100% 95%)",
@@ -15,7 +15,6 @@ export default {
   content: ["./**/*.tsx"],
   theme: {
     extend: {
-      colors: theme,
       fontSize: {
         "heading-1": ["56px", "67.2px"],
         "heading-2": ["24px", "28.8px"],
@@ -23,7 +22,7 @@ export default {
         "menu": ["16px", "20px"],
         "button": ["14px", "18px"],
         "body": ["16px", "20px"],
-        "caption": ["13px", "16px"],
+        "caption": ["14px", "16px"],
         "list-price": ["10px", "20px"],
       },
       fontWeight: {
