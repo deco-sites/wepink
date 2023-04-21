@@ -1,6 +1,7 @@
 import HeaderButton from "deco-sites/fashion/islands/HeaderButton.tsx";
 import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
 import Button from "deco-sites/fashion/components/ui/Button.tsx";
+import Container from "deco-sites/fashion/components/ui/Container.tsx";
 
 import NavItem from "./NavItem.tsx";
 import { navbarHeight } from "./constants.ts";
@@ -37,10 +38,10 @@ function Navbar({ items, searchbar }: {
       </div>
 
       {/* Desktop Version */}
-      <div class="hidden md:flex flex-row justify-between items-center border-b border-base-200 w-full pl-2 pr-3">
+      <Container class="hidden md:flex flex-row justify-between items-center border-b border-base-200 h-[82px] w-full pl-2 pr-3">
         <div class="flex-none w-44">
-          <a href="/" aria-label="Store logo" class="block px-4 py-3 w-[160px]">
-            <Icon id="Logo" width={126} height={16} />
+          <a href="/" aria-label="Store logo" class="block w-[130px]">
+            <Icon id="Logo" width={130} height={35} />
           </a>
         </div>
         <div class="flex-auto flex justify-center">
@@ -73,7 +74,7 @@ function Navbar({ items, searchbar }: {
           </Button>
           <HeaderButton variant="cart" />
         </div>
-      </div>
+      </Container>
     </>
   );
 }
