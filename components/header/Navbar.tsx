@@ -1,20 +1,25 @@
-import HeaderButton from "deco-sites/fashion/islands/HeaderButton.tsx";
-import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
-import Button from "deco-sites/fashion/components/ui/Button.tsx";
-import Container from "deco-sites/fashion/components/ui/Container.tsx";
+import HeaderButton from "deco-sites/wepink/islands/HeaderButton.tsx";
+import Icon from "deco-sites/wepink/components/ui/Icon.tsx";
+import Button from "deco-sites/wepink/components/ui/Button.tsx";
+import Container from "deco-sites/wepink/components/ui/Container.tsx";
 
 import NavItem from "./NavItem.tsx";
 import { navbarHeight } from "./constants.ts";
-import HeaderSearchMenu from "deco-sites/fashion/islands/HeaderSearchMenu.tsx";
 import type { INavItem } from "./NavItem.tsx";
-import type { Props as SearchbarProps } from "deco-sites/fashion/components/search/Searchbar.tsx";
+import type { Props as SearchBarProps } from "deco-sites/wepink/components/search/SearchBar.tsx";
+import HeaderSearchBar from "deco-sites/wepink/islands/HeaderSearchBar.tsx";
 
-function Navbar({ items, searchbar }: {
+import HasScrolledPastThresholdDataAttributeSetup from "deco-sites/wepink/islands/HasScrolledPastThresholdDataAttributeSetup.tsx";
+
+function Navbar({ items, searchBar }: {
   items: INavItem[];
-  searchbar: SearchbarProps;
+  searchBar: SearchBarProps;
 }) {
   return (
-    <>
+    <div
+      id="nav-bar"
+      class="bg-info data-[has-scrolled-past-tres-hold=true]:bg-opacity-80 backdrop-blur"
+    >
       {/* Mobile Version */}
       <div
         style={{ height: navbarHeight }}
@@ -38,7 +43,7 @@ function Navbar({ items, searchbar }: {
       </div>
 
       {/* Desktop Version */}
-      <Container class="hidden md:flex flex-row justify-between items-center border-b border-base-200 h-[82px] w-full pl-2 pr-3">
+      <Container class="hidden md:flex flex-row justify-between items-center h-[82px] w-full pl-2 pr-3">
         <div class="flex-none w-44">
           <a href="/" aria-label="Store logo" class="block w-[130px]">
             <Icon id="Logo" width={130} height={35} />
@@ -48,8 +53,7 @@ function Navbar({ items, searchbar }: {
           {items.map((item) => <NavItem item={item} />)}
         </div>
         <div class="flex-none w-44 flex items-center justify-end gap-2">
-          <HeaderButton variant="search" />
-          <HeaderSearchMenu searchbar={searchbar} />
+          <HeaderSearchBar searchBar={searchBar} />
           <Button
             as="a"
             variant="icon"
@@ -58,24 +62,12 @@ function Navbar({ items, searchbar }: {
           >
             <Icon id="User" width={20} height={20} strokeWidth={0.4} />
           </Button>
-          <Button
-            as="a"
-            variant="icon"
-            href="/wishlist"
-            aria-label="Wishlist"
-          >
-            <Icon
-              id="Heart"
-              width={20}
-              height={20}
-              strokeWidth={2}
-              fill="none"
-            />
-          </Button>
           <HeaderButton variant="cart" />
         </div>
       </Container>
-    </>
+
+      <HasScrolledPastThresholdDataAttributeSetup rootId="nav-bar" />
+    </div>
   );
 }
 

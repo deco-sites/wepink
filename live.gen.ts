@@ -11,10 +11,11 @@ import * as $$$$$1 from "./islands/ShippingSimulation.tsx";
 import * as $$$$$2 from "./islands/SliderJS.tsx";
 import * as $$$$$3 from "./islands/WishlistButton.tsx";
 import * as $$$$$4 from "./islands/SearchControls.tsx";
-import * as $$$$$5 from "./islands/HeaderSearchMenu.tsx";
+import * as $$$$$5 from "./islands/HasScrolledPastThresholdDataAttributeSetup.tsx";
 import * as $$$$$6 from "./islands/HeaderButton.tsx";
-import * as $$$$$7 from "./islands/HeaderModals.tsx";
-import * as $$$$$8 from "./islands/ProductImageZoom.tsx";
+import * as $$$$$7 from "./islands/HeaderSearchBar.tsx";
+import * as $$$$$8 from "./islands/HeaderModals.tsx";
+import * as $$$$$9 from "./islands/ProductImageZoom.tsx";
 import * as $$$$$$$$0 from "./sections/CookieConsent.tsx";
 import * as $$$$$$$$1 from "./sections/WhatsApp.tsx";
 import * as $$$$$$$$2 from "./sections/SearchResult.tsx";
@@ -104,10 +105,11 @@ const manifest = {
   },
   "islands": {
     "./islands/AddToCartButton.tsx": $$$$$0,
+    "./islands/HasScrolledPastThresholdDataAttributeSetup.tsx": $$$$$5,
     "./islands/HeaderButton.tsx": $$$$$6,
-    "./islands/HeaderModals.tsx": $$$$$7,
-    "./islands/HeaderSearchMenu.tsx": $$$$$5,
-    "./islands/ProductImageZoom.tsx": $$$$$8,
+    "./islands/HeaderModals.tsx": $$$$$8,
+    "./islands/HeaderSearchBar.tsx": $$$$$7,
+    "./islands/ProductImageZoom.tsx": $$$$$9,
     "./islands/SearchControls.tsx": $$$$$4,
     "./islands/ShippingSimulation.tsx": $$$$$1,
     "./islands/SliderJS.tsx": $$$$$2,

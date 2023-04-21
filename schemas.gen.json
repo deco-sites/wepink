@@ -3690,7 +3690,7 @@
       "required": [],
       "title": "deco-sites/wepink/components/footer/Footer.tsx@Props"
     },
-    "ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy9zZWFyY2gvU2VhcmNoYmFyLnRzeA==@EditableProps": {
+    "ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy9zZWFyY2gvU2VhcmNoQmFyRm9ybS50c3g=@EditableProps": {
       "type": "object",
       "properties": {
         "placeholder": {
@@ -3826,9 +3826,9 @@
           },
           "title": "Alerts"
         },
-        "searchbar": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy9zZWFyY2gvU2VhcmNoYmFyLnRzeA==@EditableProps",
-          "title": "Searchbar"
+        "searchBar": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy9zZWFyY2gvU2VhcmNoQmFyRm9ybS50c3g=@EditableProps",
+          "title": "Search Bar"
         },
         "navItems": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy9oZWFkZXIvSGVhZGVyLnRzeA==@NavItem[]",
@@ -4774,6 +4774,22 @@
         }
       }
     },
+    "Li9pc2xhbmRzL0hhc1Njcm9sbGVkUGFzdFRocmVzaG9sZERhdGFBdHRyaWJ1dGVTZXR1cC50c3g=": {
+      "title": "./islands/HasScrolledPastThresholdDataAttributeSetup.tsx",
+      "type": "object",
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/HasScrolledPastThresholdDataAttributeSetup.tsx"
+          ],
+          "default": "./islands/HasScrolledPastThresholdDataAttributeSetup.tsx"
+        }
+      }
+    },
     "Li9pc2xhbmRzL0hlYWRlckJ1dHRvbi50c3g=": {
       "title": "./islands/HeaderButton.tsx",
       "type": "object",
@@ -4806,8 +4822,8 @@
         }
       }
     },
-    "Li9pc2xhbmRzL0hlYWRlclNlYXJjaE1lbnUudHN4": {
-      "title": "./islands/HeaderSearchMenu.tsx",
+    "Li9pc2xhbmRzL0hlYWRlclNlYXJjaEJhci50c3g=": {
+      "title": "./islands/HeaderSearchBar.tsx",
       "type": "object",
       "required": [
         "__resolveType"
@@ -4816,9 +4832,9 @@
         "__resolveType": {
           "type": "string",
           "enum": [
-            "./islands/HeaderSearchMenu.tsx"
+            "./islands/HeaderSearchBar.tsx"
           ],
-          "default": "./islands/HeaderSearchMenu.tsx"
+          "default": "./islands/HeaderSearchBar.tsx"
         }
       }
     },
@@ -5888,13 +5904,16 @@
           "$ref": "#/definitions/Li9pc2xhbmRzL0FkZFRvQ2FydEJ1dHRvbi50c3g="
         },
         {
+          "$ref": "#/definitions/Li9pc2xhbmRzL0hhc1Njcm9sbGVkUGFzdFRocmVzaG9sZERhdGFBdHRyaWJ1dGVTZXR1cC50c3g="
+        },
+        {
           "$ref": "#/definitions/Li9pc2xhbmRzL0hlYWRlckJ1dHRvbi50c3g="
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL0hlYWRlck1vZGFscy50c3g="
         },
         {
-          "$ref": "#/definitions/Li9pc2xhbmRzL0hlYWRlclNlYXJjaE1lbnUudHN4"
+          "$ref": "#/definitions/Li9pc2xhbmRzL0hlYWRlclNlYXJjaEJhci50c3g="
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL1Byb2R1Y3RJbWFnZVpvb20udHN4"
