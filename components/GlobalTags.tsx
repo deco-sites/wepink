@@ -41,43 +41,32 @@ function GlobalTags() {
       <style
         dangerouslySetInnerHTML={{
           __html: `
-          @font-face {
-            font-family: 'Montserrat', sans-serif;
-            font-style: normal;
-            font-weight: 400;
-            font-display: swap;
-            src: url(${
+            @font-face {
+              font-display: swap;
+              font-family: 'Montserrat';
+              font-style: normal;
+              font-weight: 400;
+              src:  url(${
             asset("/fonts/montserrat-v25-latin-regular.woff2")
-          }) format('woff2');
-          }
-          @font-face {
-            font-family: 'Montserrat', sans-serif;
-            font-style: normal;
-            font-weight: 400;
-            font-display: swap;
-            src: url(${
+          }) format('woff2'),
+                    url(${
             asset("/fonts/montserrat-v25-latin-regular.woff")
-          }) format('woff');
-          }
-          @font-face {
-            font-family: 'Montserrat', sans-serif;
-            font-style: normal;
-            font-weight: 700;
-            font-display: swap;
-            src: url(${
+          }) format('woff'); 
+            }
+            /* montserrat-700 - latin */
+            @font-face {
+              font-display: swap;
+              font-family: 'Montserrat';
+              font-style: normal;
+              font-weight: 700;
+              src:  url(${
             asset("/fonts/montserrat-v25-latin-700.woff2")
-          }) format('woff2');
-          }
-          @font-face {
-            font-family: 'Montserrat', sans-serif;
-            font-style: normal;
-            font-weight: 700;
-            font-display: swap;
-            src: url(${
+          }) format('woff2'),
+                    url(${
             asset("/fonts/montserrat-v25-latin-700.woff")
-          }) format('woff');
-          }
-      `,
+          }) format('woff'); 
+            }
+        `,
         }}
       />
     </Head>

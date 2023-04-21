@@ -17,7 +17,7 @@ function Alert({ alerts = [], interval = 5 }: Props) {
 
   return (
     <div id={id}>
-      <Slider class="bg-secondary gap-6 scrollbar-none">
+      <Slider class="bg-primary gap-6 scrollbar-none">
         {alerts.map((alert) => (
           <Text
             class="flex justify-center items-center w-screen h-[38px]"

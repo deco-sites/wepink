@@ -1,7 +1,7 @@
 // Daisi UI theme
 export const theme = {
-  "primary": "hsl(180 100% 10%)",
-  "secondary": "hsl(330, 100%, 50%)",
+  "primary": "hsl(330, 100%, 50%)",
+  "secondary": "hsl(180 100% 10%)",
   "accent": "hsl(150 100% 50%)",
   "neutral": "hsl(0 0% 0%)",
   "base-100": "hsl(0 0% 100%)",
@@ -15,6 +15,7 @@ export default {
   content: ["./**/*.tsx"],
   theme: {
     extend: {
+      colors: theme,
       fontSize: {
         "heading-1": ["56px", "67.2px"],
         "heading-2": ["24px", "28.8px"],
@@ -71,7 +72,7 @@ export default {
       lg: "0px 4px 10px 0px #0000001F",
     },
     fontFamily: {
-      sans: ["Albert Sans", "sans-serif"],
+      sans: ["Montserrat", "sans-serif"],
       serif: ["inherit", "serif"],
     },
     screens: {
