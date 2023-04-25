@@ -18,7 +18,7 @@ function Navbar({ items, searchBar }: {
   return (
     <div
       id="nav-bar"
-      class="bg-info data-[has-scrolled-past-tres-hold=true]:bg-opacity-80 backdrop-blur"
+      class="bg-info group data-[has-scrolled-past-tres-hold=true]:bg-opacity-80 backdrop-blur transition-all"
     >
       {/* Mobile Version */}
       <div
@@ -43,7 +43,7 @@ function Navbar({ items, searchBar }: {
       </div>
 
       {/* Desktop Version */}
-      <Container class="hidden md:flex flex-row justify-between items-center h-[82px] w-full pl-2 pr-3">
+      <Container class="hidden md:flex flex-row justify-between items-center h-[82px] group-data-[has-scrolled-past-tres-hold=true]:h-[66px]  w-full pl-2 pr-3 transition-all">
         <div class="flex-none w-44">
           <a href="/" aria-label="Store logo" class="block w-[130px]">
             <Icon id="Logo" width={130} height={35} />
