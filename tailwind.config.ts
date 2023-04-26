@@ -35,11 +35,18 @@ export default {
         "caption": "400",
         "list-price": "400",
       },
+      spacing: {
+        "21": "5.125rem", // 81
+        "75": "18.75rem", // 300
+      },
       animation: {
         "slide-left": "slide-left-frame 0.4s ease normal",
         "slide-right": "slide-right-frame 0.4s ease normal",
         "slide-bottom": "slide-bottom-frame 0.4s ease normal",
         "progress": "progress-frame ease normal",
+      },
+      ShadowRoot: {
+        "sm": "0 5px 7px rgba(0,0,0,.2)",
       },
       keyframes: {
         "slide-left-frame": {

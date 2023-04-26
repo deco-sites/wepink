@@ -14,7 +14,7 @@ function NavItem({ item }: { item: INavItem }) {
 
   return (
     <li class="group/nav flex items-center">
-      <a href={href} class="px-8 py-4">
+      <a href={href} class="px-[22px] py-4">
         <Text class="group-hover/nav:text-primary" variant="menu">
           {label}
         </Text>

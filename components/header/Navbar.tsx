@@ -44,21 +44,26 @@ function Navbar({ items, searchBar }: {
 
       {/* Desktop Version */}
       <Container class="hidden md:flex flex-row justify-between items-center h-[82px] group-data-[has-scrolled-past-tres-hold=true]:h-[66px]  w-full pl-2 pr-3 transition-all">
-        <div class="flex-none w-44">
-          <a href="/" aria-label="Store logo" class="block w-[130px]">
+        <div class="flex-none px-4 pb-[6px]">
+          <a
+            href="/"
+            aria-label="Store logo"
+            class="block w-[130px]  text-primary"
+          >
             <Icon id="Logo" width={130} height={35} />
           </a>
         </div>
         <div class="flex-auto flex justify-center">
           {items.map((item) => <NavItem item={item} />)}
         </div>
-        <div class="flex-none w-44 flex items-center justify-end gap-2">
+        <div class="flex-none w-75 flex items-center justify-end -mr-[13px]">
           <HeaderSearchBar searchBar={searchBar} />
           <Button
             as="a"
             variant="icon"
             href="/login"
             aria-label="Log in"
+            class="ml-4 mr-[19px]"
           >
             <Icon id="User" width={20} height={20} strokeWidth={0.4} />
           </Button>

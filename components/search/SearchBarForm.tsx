@@ -39,11 +39,25 @@ function SearchBarForm(
     <form
       id="searchbar"
       action={action}
-      class="flex-grow flex border-default bg-grey-200 rounded-[11px] overflow-hidden flex-1"
+      class="flex-grow flex border-default bg-grey-200 flex-1 bg-white rounded-xl"
     >
+      <button
+        class="h-full w-9 grid place-items-center focus:outline-none"
+        aria-label="Search"
+        htmlFor="searchbar"
+        tabIndex={-1}
+      >
+        <Icon
+          class="text-primary"
+          id="MagnifyingGlass"
+          width={16}
+          height={16}
+          strokeWidth={0.01}
+        />
+      </button>
       <input
         id="search-input"
-        class="flex-grow outline-none bg-transparent px-5 h-10 pb-[2px] text-[12px] text-default placeholder-grey-500"
+        class="flex-grow outline-none bg-transparent h-10 pb-[2px] text-[12px] text-default placeholder-black text-black w-auto"
         name={name}
         defaultValue={query}
         onInput={(e) => {
@@ -56,20 +70,6 @@ function SearchBarForm(
         placeholder={placeholder}
         autocomplete="off"
       />
-      <button
-        class="h-full w-14 grid place-items-center focus:outline-none"
-        aria-label="Search"
-        htmlFor="searchbar"
-        tabIndex={-1}
-      >
-        <Icon
-          class="text-primary"
-          id="MagnifyingGlass"
-          width={22}
-          height={22}
-          strokeWidth={0.01}
-        />
-      </button>
     </form>
   );
 }

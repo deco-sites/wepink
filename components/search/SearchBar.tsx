@@ -55,7 +55,7 @@ function SearchBar({
   }
 
   return (
-    <div class="flex flex-col flex-1 relative" ref={ref}>
+    <div class="flex flex-col flex-1" ref={ref}>
       <div class="flex gap-4">
         <SearchBarForm
           action={action}
@@ -66,12 +66,12 @@ function SearchBar({
         />
       </div>
       <div
-        class={`absolute top-10 left-0 z-10 bg-opacity-95 bg-white w-full transition-all ${
+        class={`fixed top-21 max-w-[1248px] group-data-[has-scrolled-past-tres-hold=true]:top-[66px] left-1/2 z-10 bg-info -translate-x-1/2 w-full transition-all shadow-sm ${
           hasFocus ? "block" : "hidden"
         }`}
       >
         {hasSuggestions && (
-          <div class="flex flex-col py-2 gap-2 w-full">
+          <div class="flex flex-col py-2 gap-2 w-full ">
             {!emptySuggestions && (
               <>
                 <SuggestionsTermList
