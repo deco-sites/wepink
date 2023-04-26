@@ -21,23 +21,32 @@ function Navbar({ items, searchBar }: {
       class="bg-info group data-[has-scrolled-past-tres-hold=true]:bg-opacity-80 backdrop-blur transition-all"
     >
       {/* Mobile Version */}
-      <div
-        style={{ height: navbarHeight }}
-        class="md:hidden flex flex-row justify-between items-center border-b border-base-200 w-full px-2 gap-2"
-      >
+      <div class="md:hidden flex flex-row justify-between items-center border-b border-base-200 w-full px-4 pt-[9px] pb-3 gap-2">
         <HeaderButton variant="menu" />
 
         <a
           href="/"
-          class="flex-grow inline-flex items-center"
-          style={{ minHeight: navbarHeight }}
           aria-label="Store logo"
+          class="flex items-center pl-[55px]"
         >
-          <Icon id="Logo" width={126} height={16} />
+          <Icon id="Logo" width={90} height={24} class="text-primary" />
         </a>
 
-        <div class="flex gap-1">
-          <HeaderButton variant="search" />
+        <div class="flex gap-[9px] mr-[2px]">
+          <Button
+            as="a"
+            variant="icon"
+            href="/login"
+            aria-label="Log in"
+          >
+            <Icon
+              id="User"
+              width={20}
+              height={20}
+              strokeWidth={0.4}
+              class="text-black"
+            />
+          </Button>
           <HeaderButton variant="cart" />
         </div>
       </div>

@@ -39,7 +39,7 @@ function MenuButton() {
         displayMenu.value = true;
       }}
     >
-      <Icon id="Bars3" width={20} height={20} strokeWidth={0.01} />
+      <Icon id="Bars3" width={22} height={24} strokeWidth={0.01} />
     </Button>
   );
 }
@@ -77,7 +77,12 @@ function CartButton() {
         });
       }}
     >
-      <Icon id="ShoppingCart" width={20} height={20} />
+      <Icon
+        id="ShoppingCart"
+        width={20}
+        height={20}
+        class="text-black md:text-primary"
+      />
       {totalItems && (
         <span class="absolute text-[9px] right-0 top-0 rounded-full bg-secondary text-secondary-content w-4 h-4 flex items-center justify-center">
           {totalItems}
