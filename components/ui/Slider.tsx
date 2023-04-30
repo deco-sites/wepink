@@ -37,11 +37,11 @@ export function SliderDots({ children, class: _class }: SliderDotsProps) {
       class={`flex items-center justify-center overflow-auto overscroll-contain snap-x snap-mandatory ${_class}`}
     >
       {Children.map(children, (child, index) => (
-        <li class="snap-center">
+        <li class="snap-center block">
           <button
             data-dot={index}
             aria-label={`go to slider item ${index}`}
-            class="focus:outline-none group"
+            class="block focus:outline-none group"
           >
             {child}
           </button>

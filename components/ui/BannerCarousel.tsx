@@ -1,4 +1,5 @@
 import Text from "deco-sites/fashion/components/ui/Text.tsx";
+import Container from "deco-sites/fashion/components/ui/Container.tsx";
 import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
 import Button from "deco-sites/fashion/components/ui/Button.tsx";
 import {
@@ -20,10 +21,6 @@ export interface Banner {
   action?: {
     /** @description when user clicks on the image, go to this link */
     href: string;
-    /** @description Image text title */
-    title: string;
-    /** @description Image text subtitle */
-    subTitle: string;
     /** @description Button label */
     label: string;
   };
@@ -51,7 +48,7 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
   } = image;
 
   return (
-    <div class="relative h-[600px] min-w-[100vw] overflow-y-hidden">
+    <div class="relative w-[100vw] max-w-[1534px] overflow-y-hidden">
       <a href={action?.href ?? "#"} aria-label={action?.label}>
         <Picture class="w-full" preload={lcp}>
           <Source
@@ -59,14 +56,12 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
             fetchPriority={lcp ? "high" : "auto"}
             src={mobile}
             width={360}
-            height={600}
           />
           <Source
             media="(min-width: 768px)"
             fetchPriority={lcp ? "high" : "auto"}
             src={desktop}
-            width={1440}
-            height={600}
+            width={1534}
           />
           <img
             class="object-cover w-full sm:h-full"
@@ -75,20 +70,6 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
             alt={alt}
           />
         </Picture>
-        {action && (
-          <div
-            class="absolute top-0 bottom-0 m-auto left-0 right-0 sm:right-auto sm:left-[12%] max-h-min max-w-[235px] flex flex-col gap-4 p-4 rounded"
-            style={{ backdropFilter: "blur(8px)" }}
-          >
-            <Text variant="heading-1" tone="base-100">
-              {action.title}
-            </Text>
-            <Text variant="heading-3" tone="base-100">
-              {action.subTitle}
-            </Text>
-            <Button variant="outline">{action.label}</Button>
-          </div>
-        )}
       </a>
     </div>
   );
@@ -97,25 +78,10 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
 function ProgressiveDots({ images, interval = 0 }: Props) {
   return (
     <>
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
-          @property --dot-progress {
-            syntax: '<percentage>';
-            inherits: false;
-            initial-value: 0%;
-          }
-          `,
-        }}
-      >
-      </style>
-      <SliderDots class="col-span-full gap-4 z-10 row-start-4">
+      <SliderDots class="absolute bottom-0 left-1/2 z-10 -translate-x-1/2">
         {images?.map((_) => (
-          <div class="py-6">
-            <div
-              class="w-16 sm:w-20 h-0.5 rounded group-disabled:animate-progress bg-gradient-to-r from-base-100 from-[length:var(--dot-progress)] to-[rgba(255,255,255,0.4)] to-[length:var(--dot-progress)]"
-              style={{ animationDuration: `${interval}s` }}
-            />
+          <div class="p-1">
+            <div class="bg-[#cacbcc] w-2.5 h-2.5 rounded group-disabled:bg-primary" />
           </div>
         ))}
       </SliderDots>
@@ -126,28 +92,30 @@ function ProgressiveDots({ images, interval = 0 }: Props) {
 function Controls() {
   return (
     <>
-      <div class="flex items-center justify-center z-10 col-start-1 row-start-2">
+      <div class="absolute left-[5px] top-1/2 -translate-y-1/2 hidden lg:flex items-center justify-center z-10">
         <Button
           variant="icon"
           data-slide="prev"
+          class="bg-white h-[55px] w-[55px]"
           aria-label="Previous item"
         >
           <Icon
-            class="text-base-100"
+            class="text-primary"
             size={20}
             id="ChevronLeft"
             strokeWidth={3}
           />
         </Button>
       </div>
-      <div class="flex items-center justify-center z-10 col-start-3 row-start-2">
+      <div class="absolute right-[5px] top-1/2 hidden lg:flex items-center justify-center z-10 -translate-y-1/2">
         <Button
           variant="icon"
           data-slide="next"
+          class="bg-white h-[55px] w-[55px] text-primary"
           aria-label="Next item"
         >
           <Icon
-            class="text-base-100"
+            class="text-primary"
             size={20}
             id="ChevronRight"
             strokeWidth={3}
@@ -162,11 +130,11 @@ function BannerCarousel({ images, preload, interval }: Props) {
   const id = useId();
 
   return (
-    <div
+    <Container
       id={id}
-      class="grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_48px]"
+      class="relative"
     >
-      <Slider class="col-span-full row-span-full scrollbar-none gap-6">
+      <Slider class="">
         {images?.map((image, index) => (
           <BannerItem image={image} lcp={index === 0 && preload} />
         ))}
@@ -177,7 +145,7 @@ function BannerCarousel({ images, preload, interval }: Props) {
       <ProgressiveDots images={images} interval={interval} />
 
       <SliderControllerJS rootId={id} interval={interval && interval * 1e3} />
-    </div>
+    </Container>
   );
 }
 
