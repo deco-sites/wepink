@@ -41,6 +41,7 @@ function GlobalTags() {
       <style
         dangerouslySetInnerHTML={{
           __html: `
+          /* montserrat-400 - latin */
             @font-face {
               font-display: swap;
               font-family: 'Montserrat';
@@ -51,6 +52,19 @@ function GlobalTags() {
           }) format('woff2'),
                     url(${
             asset("/fonts/montserrat-v25-latin-regular.woff")
+          }) format('woff'); 
+            }
+          /* montserrat-500 - latin */
+            @font-face {
+              font-display: swap;
+              font-family: 'Montserrat';
+              font-style: normal;
+              font-weight: 500;
+              src:  url(${
+            asset("/fonts/montserrat-v25-latin-500.woff2")
+          }) format('woff2'),
+                    url(${
+            asset("/fonts/montserrat-v25-latin-500.woff")
           }) format('woff'); 
             }
             /* montserrat-700 - latin */

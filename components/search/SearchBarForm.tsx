@@ -42,7 +42,7 @@ function SearchBarForm(
       class="flex-grow flex border-default bg-grey-200 flex-1 bg-white rounded-xl"
     >
       <button
-        class="h-full w-9 grid place-items-center focus:outline-none"
+        class="h-full w-10 lg:w-9 grid place-items-center focus:outline-none"
         aria-label="Search"
         htmlFor="searchbar"
         tabIndex={-1}
@@ -57,7 +57,7 @@ function SearchBarForm(
       </button>
       <input
         id="search-input"
-        class="flex-grow outline-none bg-transparent h-10 pb-[2px] text-[12px] text-default placeholder-black text-black w-auto"
+        class="flex-grow outline-none bg-transparent h-[42px] lg:h-10 pb-[2px] text-[12px] text-default placeholder-black text-black w-auto"
         name={name}
         defaultValue={query}
         onInput={(e) => {

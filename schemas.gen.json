@@ -3758,48 +3758,6 @@
           "type": "string",
           "title": "Href"
         },
-        "children": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "label": {
-                "type": "string",
-                "title": "Label"
-              },
-              "href": {
-                "type": "string",
-                "title": "Href"
-              },
-              "children": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "label": {
-                      "type": "string",
-                      "title": "Label"
-                    },
-                    "href": {
-                      "type": "string",
-                      "title": "Href"
-                    }
-                  },
-                  "required": [
-                    "label",
-                    "href"
-                  ]
-                },
-                "title": "Children"
-              }
-            },
-            "required": [
-              "label",
-              "href"
-            ]
-          },
-          "title": "Children"
-        },
         "image": {
           "type": "object",
           "properties": {
@@ -3815,7 +3773,9 @@
               "title": "Alt"
             }
           },
-          "required": [],
+          "required": [
+            "src"
+          ],
           "title": "Image"
         }
       },

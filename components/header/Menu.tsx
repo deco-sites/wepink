@@ -1,10 +1,10 @@
-import { useSignal } from "@preact/signals";
 import Button from "deco-sites/fashion/components/ui/Button.tsx";
 import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
 import Text from "deco-sites/fashion/components/ui/Text.tsx";
 import type { Props as SearchBarProps } from "deco-sites/wepink/components/search/SearchBar.tsx";
 import HeaderSearchBar from "deco-sites/wepink/islands/HeaderSearchBar.tsx";
 import type { INavItem } from "./NavItem.tsx";
+import Image from "deco-sites/std/components/Image.tsx";
 
 export interface Props {
   items: INavItem[];
@@ -12,70 +12,26 @@ export interface Props {
   searchBar: SearchBarProps;
 }
 
-function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
-  const open = useSignal(false);
-  const hasChildren = Array.isArray(item.children) && item.children.length > 0;
-
-  const title = (
-    <Text
-      class="flex-grow min-h-[40px] flex items-center justify-start"
-      variant={level === 0 ? "menu" : "caption"}
-    >
-      {item.label}
-    </Text>
-  );
-
+function MenuItem(
+  { href, label, image }: INavItem,
+) {
   return (
     <li>
-      <div
-        class={`flex justify-between items-center w-full py-2 ${
-          level > 0 ? "pl-2" : ""
-        }`}
-        onClick={() => {
-          if (hasChildren) open.value = !open.value;
-        }}
-      >
-        {hasChildren
-          ? title
-          : <a class="w-full inline-block" href={item.href}>{title}</a>}
-
-        {hasChildren && (
-          <Button variant="icon">
-            <Icon
-              class={open.value === true ? "hidden" : "block"}
-              id="Plus"
-              height={20}
-              width={20}
-              strokeWidth={1.5}
-            />
-            <Icon
-              class={open.value === true ? "block" : "hidden"}
-              id="Minus"
-              height={20}
-              width={20}
-              strokeWidth={1.5}
-            />
-          </Button>
+      <a class="flex items-center gap-2 w-full py-6" href={href}>
+        {image && (
+          <Image src={image.src} alt={image.alt} width={30} height={30} />
         )}
-      </div>
-
-      {hasChildren && (
-        <ul class={`flex-col ${open.value === true ? "flex" : "hidden"}`}>
-          <li>
-            <a href={item.href} class="w-full py-2 pl-2 inline-block">
-              <Text class="underline" variant="caption">
-                Ver todos
-              </Text>
-            </a>
-          </li>
-          {item.children!.map((node) => (
-            <MenuItem
-              item={node}
-              level={level + 1}
-            />
-          ))}
-        </ul>
-      )}
+        <Text class="flex-grow min-h-[40px] !text-2xl flex items-center justify-start font-medium !text-[#333]">
+          {label}
+        </Text>
+        <Icon
+          id="ChevronRight"
+          height={28}
+          width={28}
+          class="text-primary-focus"
+          strokeWidth={2}
+        />
+      </a>
     </li>
   );
 }
@@ -83,7 +39,7 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
 function Menu({ items, onClose, searchBar }: Props) {
   return (
     <>
-      <header class="bg-primary">
+      <header class="bg-primary relative">
         <div class="pt-[50px] pb-10 flex justify-center items-center">
           <a
             href="/"
@@ -134,7 +90,7 @@ function Menu({ items, onClose, searchBar }: Props) {
           <HeaderSearchBar searchBar={searchBar} />
         </div>
         <Button
-          class="!px-[9px] absolute top-[47px] right-[5vw]"
+          class="!px-[9px] absolute top-[47px] right-0"
           onClick={onClose}
         >
           <Icon
@@ -146,47 +102,21 @@ function Menu({ items, onClose, searchBar }: Props) {
           />
         </Button>
       </header>
-      <ul class="px-4 flex-grow flex flex-col divide-y divide-base-200">
-        {items.map((item) => <MenuItem item={item} />)}
-      </ul>
-
-      <ul class="flex flex-col py-2 bg-base-300">
-        <li>
-          <a
-            class="flex items-center gap-4 px-4 py-2"
-            href="/wishlist"
-          >
-            <Icon id="Heart" width={20} height={20} strokeWidth={2} />
-            <Text variant="caption">Lista de desejos</Text>
-          </a>
-        </li>
-        <li>
-          <a
-            class="flex items-center gap-4 px-4 py-2"
-            href="https://www.deco.cx"
-          >
-            <Icon id="MapPin" width={20} height={20} strokeWidth={2} />
-            <Text variant="caption">Nossas lojas</Text>
-          </a>
-        </li>
-        <li>
-          <a
-            class="flex items-center gap-4 px-4 py-2"
-            href="https://www.deco.cx"
-          >
-            <Icon id="Phone" width={20} height={20} strokeWidth={2} />
-            <Text variant="caption">Fale conosco</Text>
-          </a>
-        </li>
-        <li>
-          <a
-            class="flex items-center gap-4 px-4 py-2"
-            href="https://www.deco.cx"
-          >
-            <Icon id="User" width={20} height={20} strokeWidth={2} />
-            <Text variant="caption">Minha conta</Text>
-          </a>
-        </li>
+      <div>
+        <a href="#" class="flex items-center justify-end px-4 pt-[21px] pb-0.5">
+          <Text class="underline text-xs">
+            Ver todos os produtos
+          </Text>
+          <Icon
+            id="ChevronRight"
+            height={12}
+            width={12}
+            strokeWidth={1}
+          />
+        </a>
+      </div>
+      <ul class="px-4 py-[26px] flex-grow flex flex-col divide-y divide-base-200">
+        {items.map((item) => <MenuItem {...item} />)}
       </ul>
     </>
   );
