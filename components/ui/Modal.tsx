@@ -34,9 +34,9 @@ const sectionStyles = {
 };
 
 const containerStyles = {
-  "sidebar-right": "h-full w-full sm:max-w-lg",
-  "sidebar-left": "h-full w-full sm:max-w-lg",
-  center: "",
+  "sidebar-right": "h-full sm:max-w-lg w-[95vw]",
+  "sidebar-left": "h-full sm:max-w-lg w-[95vw]",
+  center: "w-full",
 };
 
 const Modal = ({
@@ -70,7 +70,7 @@ const Modal = ({
     <dialog
       {...props}
       ref={ref}
-      class={`bg-transparent p-0 m-0 max-w-full w-full max-h-full h-full backdrop-opacity-50 ${
+      class={`bg-transparent p-0 m-0 max-w-full w-full max-h-full h-full backdrop-brightness-0 backdrop-opacity-50 ${
         dialogStyles[mode]
       } ${props.class ?? ""}`}
       onClick={(e) =>
@@ -79,21 +79,13 @@ const Modal = ({
       onClose={onClose}
     >
       <section
-        class={`w-full h-full flex bg-transparent ${sectionStyles[mode]}`}
+        class={`h-full flex bg-transparent ${sectionStyles[mode]}`}
       >
         <div
           class={`bg-base-100 flex flex-col max-h-full ${
             containerStyles[mode]
           }`}
         >
-          <header class="flex px-4 py-6 justify-between items-center border-b border-base-200">
-            <h1>
-              <Text variant="heading-2">{title}</Text>
-            </h1>
-            <Button variant="icon" onClick={onClose}>
-              <Icon id="XMark" width={20} height={20} strokeWidth={2} />
-            </Button>
-          </header>
           <div class="overflow-y-auto flex-grow flex flex-col">
             {loading === "lazy" ? lazy.value && children : children}
           </div>

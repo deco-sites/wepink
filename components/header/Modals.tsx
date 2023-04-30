@@ -19,6 +19,10 @@ interface Props {
 function Modals({ menu }: Props) {
   const { displayCart, displayMenu } = useUI();
 
+  function handleMenuClose() {
+    displayMenu.value = false;
+  }
+
   return (
     <>
       <Modal
@@ -26,12 +30,10 @@ function Modals({ menu }: Props) {
         mode="sidebar-left"
         loading="lazy"
         open={displayMenu.value}
-        onClose={() => {
-          displayMenu.value = false;
-        }}
+        onClose={handleMenuClose}
       >
         <Suspense fallback={<Loading />}>
-          <Menu {...menu} />
+          <Menu {...menu} onClose={handleMenuClose} />
         </Suspense>
       </Modal>
 

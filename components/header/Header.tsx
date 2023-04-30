@@ -65,7 +65,7 @@ function Header(
       </div>
 
       <Modals
-        menu={{ items: navItems }}
+        menu={{ items: navItems, searchBar }}
       />
     </header>
   );

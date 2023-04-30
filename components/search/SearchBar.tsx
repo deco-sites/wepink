@@ -55,7 +55,7 @@ function SearchBar({
   }
 
   return (
-    <div class="flex flex-col flex-1" ref={ref}>
+    <div class="relative flex flex-col flex-1" ref={ref}>
       <div class="flex gap-4">
         <SearchBarForm
           action={action}
@@ -66,7 +66,7 @@ function SearchBar({
         />
       </div>
       <div
-        class={`fixed top-21 max-w-[1248px] group-data-[has-scrolled-past-tres-hold=true]:top-[66px] left-1/2 z-10 bg-info -translate-x-1/2 w-full transition-all shadow-sm ${
+        class={`absolute top-10 lg:fixed lg:top-21 lg:max-w-[1248px] lg:group-data-[has-scrolled-past-tres-hold=true]:top-[66px] lg:left-1/2 z-10 bg-info lg:-translate-x-1/2 w-full transition-all shadow-sm ${
           hasFocus ? "block" : "hidden"
         }`}
       >
@@ -82,7 +82,7 @@ function SearchBar({
                 />
               </>
             )}
-            {emptySuggestions && (
+            {true && (
               <div class="py-16 md:(py-6!) flex flex-col gap-4 w-full">
                 <Text
                   variant="heading-3"

@@ -3426,6 +3426,14 @@
             },
             {
               "type": "string",
+              "const": "Orders"
+            },
+            {
+              "type": "string",
+              "const": "Chat"
+            },
+            {
+              "type": "string",
               "const": "ArrowsPointingOut"
             }
           ],
@@ -3621,6 +3629,14 @@
             {
               "type": "string",
               "const": "WhatsApp"
+            },
+            {
+              "type": "string",
+              "const": "Orders"
+            },
+            {
+              "type": "string",
+              "const": "Chat"
             },
             {
               "type": "string",

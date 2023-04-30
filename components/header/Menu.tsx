@@ -1,11 +1,15 @@
+import { useSignal } from "@preact/signals";
+import Button from "deco-sites/fashion/components/ui/Button.tsx";
 import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
 import Text from "deco-sites/fashion/components/ui/Text.tsx";
-import Button from "deco-sites/fashion/components/ui/Button.tsx";
-import { useSignal } from "@preact/signals";
+import type { Props as SearchBarProps } from "deco-sites/wepink/components/search/SearchBar.tsx";
+import HeaderSearchBar from "deco-sites/wepink/islands/HeaderSearchBar.tsx";
 import type { INavItem } from "./NavItem.tsx";
 
 export interface Props {
   items: INavItem[];
+  onClose?: () => void;
+  searchBar: SearchBarProps;
 }
 
 function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
@@ -76,9 +80,72 @@ function MenuItem({ item, level = 0 }: { item: INavItem; level?: number }) {
   );
 }
 
-function Menu({ items }: Props) {
+function Menu({ items, onClose, searchBar }: Props) {
   return (
     <>
+      <header class="bg-primary">
+        <div class="pt-[50px] pb-10 flex justify-center items-center">
+          <a
+            href="/"
+            aria-label="Store logo"
+            class=""
+          >
+            <Icon id="Logo" width={124} height={33} class="text-white" />
+          </a>
+        </div>
+        <div class="flex justify-between items-center px-4 pb-2.5">
+          <a href="#" class="flex flex-col min-w-[70px] items-center gap-1">
+            <Icon
+              id="User"
+              height={21}
+              width={21}
+              class="text-white"
+            />
+            <Text class="text-center text-xs text-white leading-[15px]">
+              Minha<br />
+              conta
+            </Text>
+          </a>
+          <a href="#" class="flex flex-col min-w-[70px] items-center gap-1">
+            <Icon
+              id="Orders"
+              height={21}
+              width={21}
+              class="text-white"
+            />
+            <Text class="text-center text-xs text-white leading-[15px]">
+              Meus<br />
+              pedidos
+            </Text>
+          </a>
+          <a href="#" class="flex flex-col min-w-[70px] items-center gap-1">
+            <Icon
+              id="Chat"
+              height={21}
+              width={21}
+              class="text-white whitespace-pre"
+            />
+            <Text class="text-center text-xs text-white leading-[15px]">
+              Atendimento
+            </Text>
+          </a>
+        </div>
+        <div class="px-4 py-3">
+          <HeaderSearchBar searchBar={searchBar} />
+        </div>
+        <Button
+          class="!px-[9px] absolute top-[47px] right-[5vw]"
+          onClick={onClose}
+        >
+          <Icon
+            id="XMark"
+            height={30}
+            width={30}
+            class="text-white"
+            strokeWidth={1.5}
+          />
+        </Button>
+      </header>
       <ul class="px-4 flex-grow flex flex-col divide-y divide-base-200">
         {items.map((item) => <MenuItem item={item} />)}
       </ul>
