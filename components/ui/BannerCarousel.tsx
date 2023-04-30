@@ -132,7 +132,7 @@ function BannerCarousel({ images, preload, interval }: Props) {
   return (
     <Container
       id={id}
-      class="relative"
+      class="relative mb-12"
     >
       <Slider class="">
         {images?.map((image, index) => (

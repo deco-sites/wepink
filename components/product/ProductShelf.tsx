@@ -11,6 +11,7 @@ import type { Product } from "deco-sites/std/commerce/types.ts";
 import ViewSendEvent from "deco-sites/fashion/components/ViewSendEvent.tsx";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 import { useOffer } from "deco-sites/fashion/sdk/useOffer.ts";
+import SectionTitle from "deco-sites/fashion/components/ui/SectionTitle.tsx";
 
 export interface Props {
   title: string;
@@ -31,11 +32,9 @@ function ProductShelf({
   return (
     <Container
       id={id}
-      class="grid grid-cols-[48px_1fr_48px] grid-rows-[48px_1fr_48px_1fr] py-10 px-0 sm:px-5"
+      class="a-10 px-0 sm:px-5"
     >
-      <h2 class="text-center row-start-1 col-span-full">
-        <Text variant="heading-2">{title}</Text>
-      </h2>
+      <SectionTitle title={title} />
 
       <Slider
         class="gap-6 col-span-full row-start-2 row-end-5"

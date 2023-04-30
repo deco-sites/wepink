@@ -17,7 +17,7 @@ export default {
     extend: {
       fontSize: {
         "heading-1": ["56px", "67.2px"],
-        "heading-2": ["24px", "28.8px"],
+        "heading-2": ["48px", "52px"],
         "heading-3": ["20px", "24px"],
         "menu": ["16px", "20px"],
         "button": ["14px", "18px"],
@@ -78,6 +78,7 @@ export default {
       lg: "0px 4px 10px 0px #0000001F",
     },
     fontFamily: {
+      title: ["Century Gothic", "Montserrat", "sans-serif"],
       sans: ["Montserrat", "sans-serif"],
       serif: ["inherit", "serif"],
     },

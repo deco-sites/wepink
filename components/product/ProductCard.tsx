@@ -9,37 +9,6 @@ import { useVariantPossibilities } from "deco-sites/fashion/sdk/useVariantPossib
 import type { Product } from "deco-sites/std/commerce/types.ts";
 import ButtonSendEvent from "deco-sites/fashion/components/ButtonSendEvent.tsx";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
-
-/**
- * A simple, inplace sku selector to be displayed once the user hovers the product card
- * It takes the user to the pdp once the user clicks on a given sku. This is interesting to
- * remove JS from the frontend
- */
-function Sizes(product: Product) {
-  const possibilities = useVariantPossibilities(product);
-  const options = Object.entries(
-    possibilities["TAMANHO"] ?? possibilities["Tamanho"] ?? {},
-  );
-
-  return (
-    <ul class="flex justify-center items-center gap-2">
-      {options.map(([value, urls]) => {
-        const url = urls.find((url) => url === product.url) || urls[0];
-
-        return (
-          <a href={url}>
-            <Avatar
-              variant="abbreviation"
-              content={value}
-              disabled={url === product.url}
-            />
-          </a>
-        );
-      })}
-    </ul>
-  );
-}
-
 interface Props {
   product: Product;
   /** Preload card image */
@@ -102,7 +71,6 @@ function ProductCard({ product, preload, itemListName }: Props) {
                 backdropFilter: "blur(2px)",
               }}
             >
-              <Sizes {...product} />
               {/* FIXME: Understand why fresh breaks rendering this component */}
               <ButtonSendEvent
                 as="a"

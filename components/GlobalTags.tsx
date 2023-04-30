@@ -80,6 +80,16 @@ function GlobalTags() {
             asset("/fonts/montserrat-v25-latin-700.woff")
           }) format('woff'); 
             }
+            /* century-gothic-700 - latin */
+            @font-face {
+              font-display: swap;
+              font-family: 'Century Gothic';
+              font-style: normal;
+              font-weight: 700;
+              src:  url(${
+            asset("/fonts/century-gothic-700.woff2")
+          }) format('woff2')
+            }
         `,
         }}
       />
