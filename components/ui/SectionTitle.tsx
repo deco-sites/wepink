@@ -6,7 +6,7 @@ interface Props {
 
 function SectionTitle({ title }: Props) {
   return (
-    <h2 class="flex justify-center mb-[52px]">
+    <h2 class="flex justify-center mb-10 lg:mb-[52px]">
       <Text variant="heading-2" class="text-center font-title text-primary">
         {title}
       </Text>

@@ -18,13 +18,13 @@ type Props = Omit<JSX.IntrinsicElements["span"], "aria-level"> & {
 
 const VARIANT_STYLES = {
   "heading-1": "font-heading-1 text-heading-1",
-  "heading-2": "font-heading-2 text-heading-2",
-  "heading-3": "font-heading-3 text-heading-3",
+  "heading-2": "font-heading-2 text-heading-2 lg:text-heading-desktop-2",
+  "heading-3": "font-heading-3 text-heading-3 lg:text-heading-desktop-3",
   "menu": "font-menu text-menu",
   "button": "font-button text-button",
   "body": "font-body text-body",
-  "caption": "font-caption text-caption",
-  "list-price": "font-list-price text-list-price",
+  "caption": "font-caption text-caption lg:text-caption-desktop",
+  "list-price": "font-list-price text-list-price lg:text-list-price-desktop",
 };
 
 const TONE_STYLES = {

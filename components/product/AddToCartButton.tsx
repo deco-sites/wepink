@@ -1,4 +1,5 @@
 import Button from "deco-sites/fashion/components/ui/Button.tsx";
+import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
 import {
   Options as UseAddToCartProps,
   useAddToCart,
@@ -9,10 +10,19 @@ interface Props extends UseAddToCartProps {
    * @description Product id
    */
   sellerId: string;
+  variant?: "shelf" | "product";
 }
 
 function AddToCartButton(
-  { skuId, sellerId, discount, price, productGroupId, name }: Props,
+  {
+    skuId,
+    sellerId,
+    discount,
+    price,
+    productGroupId,
+    name,
+    variant = "product",
+  }: Props,
 ) {
   const props = useAddToCart({
     skuId,
@@ -24,8 +34,20 @@ function AddToCartButton(
   });
 
   return (
-    <Button data-deco="add-to-cart" {...props} class="w-full">
-      Adicionar à Sacola
+    <Button
+      class="h-[42px]"
+      data-deco="add-to-cart"
+      variant="outline"
+      {...props}
+    >
+      {variant === "shelf"
+        ? (
+          <>
+            +
+            <Icon id="ShoppingCart" class="mr-1.5" height={14} width={14} />
+          </>
+        )
+        : "Comprar"}
     </Button>
   );
 }

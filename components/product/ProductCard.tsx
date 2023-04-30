@@ -1,14 +1,12 @@
-import Image from "deco-sites/std/components/Image.tsx";
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
-import Avatar from "deco-sites/fashion/components/ui/Avatar.tsx";
-import Button from "deco-sites/fashion/components/ui/Button.tsx";
-import WishlistIcon from "deco-sites/fashion/islands/WishlistButton.tsx";
-import { useOffer } from "deco-sites/fashion/sdk/useOffer.ts";
-import { formatPrice } from "deco-sites/fashion/sdk/format.ts";
-import { useVariantPossibilities } from "deco-sites/fashion/sdk/useVariantPossiblities.ts";
-import type { Product } from "deco-sites/std/commerce/types.ts";
 import ButtonSendEvent from "deco-sites/fashion/components/ButtonSendEvent.tsx";
+import Text from "deco-sites/fashion/components/ui/Text.tsx";
+import AddToCartButton from "deco-sites/fashion/islands/AddToCartButton.tsx";
+import { formatPrice } from "deco-sites/fashion/sdk/format.ts";
+import { useOffer } from "deco-sites/fashion/sdk/useOffer.ts";
+import type { Product } from "deco-sites/std/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
+import Image from "deco-sites/std/components/Image.tsx";
+
 interface Props {
   product: Product;
   /** Preload card image */
@@ -25,10 +23,10 @@ function ProductCard({ product, preload, itemListName }: Props) {
     name,
     image: images,
     offers,
-    isVariantOf,
+    description,
   } = product;
   const [front, back] = images ?? [];
-  const { listPrice, price, seller } = useOffer(offers);
+  const { listPrice, price, seller, installments } = useOffer(offers);
 
   return (
     <div
@@ -38,43 +36,63 @@ function ProductCard({ product, preload, itemListName }: Props) {
     >
       <a href={url} aria-label="product link">
         <div class="relative w-full">
-          <div class="absolute top-0 right-0">
-            <WishlistIcon
-              productId={isVariantOf?.productGroupID}
-              sku={productID}
-              title={name}
-            />
-          </div>
           <Image
             src={front.url!}
             alt={front.alternateName}
-            width={200}
-            height={279}
+            width={300}
+            height={300}
             class="rounded w-full group-hover:hidden"
             preload={preload}
             loading={preload ? "eager" : "lazy"}
-            sizes="(max-width: 640px) 50vw, 20vw"
+            sizes="(max-width: 640px) 50vw, 300px"
           />
           <Image
             src={back?.url ?? front.url!}
             alt={back?.alternateName ?? front.alternateName}
-            width={200}
-            height={279}
+            width={300}
+            height={300}
             class="rounded w-full hidden group-hover:block"
-            sizes="(max-width: 640px) 50vw, 20vw"
+            sizes="(max-width: 640px) 50vw, 300px"
           />
+        </div>
+
+        <div class="flex flex-col gap-1 py-2">
+          <Text
+            class="mt-4 pb-1 block h-[72px]"
+            variant="heading-3"
+          >
+            {name}
+          </Text>
+          <Text variant="caption" class="block pb-2">
+            {description}
+          </Text>
+          <Text
+            class="line-through block mb-1 !font-bold"
+            variant="list-price"
+            tone="base-300"
+          >
+            {formatPrice(listPrice, offers!.priceCurrency!)}
+          </Text>
+          <div class="flex items-center gap-1">
+            <Text class="text-base lg:text-lg !font-bold">
+              {formatPrice(price, offers!.priceCurrency!)}
+            </Text>
+            <Text variant="caption">
+              {installments}
+            </Text>
+          </div>
           {seller && (
             <div
-              class="absolute bottom-0 hidden sm:group-hover:flex flex-col gap-2 w-full p-2 bg-opacity-10"
+              class="flex w-full bg-opacity-10 mt-2"
               style={{
                 backgroundColor: "rgba(255, 255, 255, 0.2)",
                 backdropFilter: "blur(2px)",
               }}
             >
-              {/* FIXME: Understand why fresh breaks rendering this component */}
               <ButtonSendEvent
                 as="a"
                 href={product.url}
+                class="flex-1 mr-2.5"
                 event={{
                   name: "select_item",
                   params: {
@@ -89,27 +107,19 @@ function ProductCard({ product, preload, itemListName }: Props) {
                   },
                 }}
               >
-                Visualizar Produto
+                Comprar
               </ButtonSendEvent>
+              <AddToCartButton
+                variant="shelf"
+                skuId={productID}
+                sellerId={seller}
+                price={price ?? 0}
+                discount={price && listPrice ? listPrice - price : 0}
+                name={product.name ?? ""}
+                productGroupId={product.isVariantOf?.productGroupID ?? ""}
+              />
             </div>
           )}
-        </div>
-
-        <div class="flex flex-col gap-1 py-2">
-          <Text
-            class="overflow-hidden text-ellipsis whitespace-nowrap"
-            variant="caption"
-          >
-            {name}
-          </Text>
-          <div class="flex items-center gap-2">
-            <Text class="line-through" variant="list-price" tone="base-300">
-              {formatPrice(listPrice, offers!.priceCurrency!)}
-            </Text>
-            <Text variant="caption" tone="secondary">
-              {formatPrice(price, offers!.priceCurrency!)}
-            </Text>
-          </div>
         </div>
       </a>
     </div>

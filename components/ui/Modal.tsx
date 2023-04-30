@@ -70,7 +70,7 @@ const Modal = ({
     <dialog
       {...props}
       ref={ref}
-      class={`bg-transparent p-0 m-0 max-w-full w-full max-h-full h-full backdrop-brightness-0 backdrop-opacity-50 ${
+      class={`bg-transparent p-0 m-0 max-w-full w-full max-h-full h-full backdrop:bg-opacity-50 backdrop:bg-black  ${
         dialogStyles[mode]
       } ${props.class ?? ""}`}
       onClick={(e) =>

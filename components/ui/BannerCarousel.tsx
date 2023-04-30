@@ -96,14 +96,14 @@ function Controls() {
         <Button
           variant="icon"
           data-slide="prev"
-          class="bg-white h-[55px] w-[55px]"
+          class="bg-white h-[55px] w-[55px] !rounded-full"
           aria-label="Previous item"
         >
           <Icon
             class="text-primary"
-            size={20}
+            size={35}
             id="ChevronLeft"
-            strokeWidth={3}
+            strokeWidth={2}
           />
         </Button>
       </div>
@@ -111,14 +111,14 @@ function Controls() {
         <Button
           variant="icon"
           data-slide="next"
-          class="bg-white h-[55px] w-[55px] text-primary"
+          class="bg-white h-[55px] w-[55px] !rounded-full"
           aria-label="Next item"
         >
           <Icon
             class="text-primary"
-            size={20}
+            size={35}
             id="ChevronRight"
-            strokeWidth={3}
+            strokeWidth={2}
           />
         </Button>
       </div>
@@ -132,7 +132,7 @@ function BannerCarousel({ images, preload, interval }: Props) {
   return (
     <Container
       id={id}
-      class="relative mb-12"
+      class="relative mb-9 lg:mb-12 px-px"
     >
       <Slider class="">
         {images?.map((image, index) => (
