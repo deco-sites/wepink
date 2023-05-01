@@ -3281,6 +3281,19 @@
       "required": [],
       "title": "deco-sites/wepink/sections/DesignSystem.tsx@Props"
     },
+    "ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy91aS9GZWF0dXJlZFByb2R1Y3QudHN4@Props": {
+      "type": "object",
+      "properties": {
+        "products": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]|null",
+          "title": "Products"
+        }
+      },
+      "required": [
+        "products"
+      ],
+      "title": "deco-sites/wepink/components/ui/FeaturedProduct.tsx@Props"
+    },
     "ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy91aS9GZWF0dXJlcy50c3g=@Feature": {
       "type": "object",
       "properties": {
@@ -5346,6 +5359,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy93ZXBpbmsvc2VjdGlvbnMvRmVhdHVyZWRQcm9kdWN0LnRzeA==": {
+      "title": "deco-sites/wepink/sections/FeaturedProduct.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy91aS9GZWF0dXJlZFByb2R1Y3QudHN4@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/wepink/sections/FeaturedProduct.tsx"
+          ],
+          "default": "deco-sites/wepink/sections/FeaturedProduct.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy93ZXBpbmsvc2VjdGlvbnMvRmVhdHVyZXMudHN4": {
       "title": "deco-sites/wepink/sections/Features.tsx",
       "type": "object",
@@ -5985,6 +6019,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy93ZXBpbmsvc2VjdGlvbnMvRGVzaWduU3lzdGVtLnRzeA=="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy93ZXBpbmsvc2VjdGlvbnMvRmVhdHVyZWRQcm9kdWN0LnRzeA=="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy93ZXBpbmsvc2VjdGlvbnMvRmVhdHVyZXMudHN4"

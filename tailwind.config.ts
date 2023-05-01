@@ -49,9 +49,6 @@ export default {
         "slide-bottom": "slide-bottom-frame 0.4s ease normal",
         "progress": "progress-frame ease normal",
       },
-      ShadowRoot: {
-        "sm": "0 5px 7px rgba(0,0,0,.2)",
-      },
       keyframes: {
         "slide-left-frame": {
           from: { transform: "translateX(100%)" },
@@ -80,6 +77,7 @@ export default {
       default: "0px 1px 4px 0px #0000001F",
       md: "0px 1px 5px 0px #00000024",
       lg: "0px 4px 10px 0px #0000001F",
+      xl: "10px 10px 20px #ddd",
     },
     fontFamily: {
       title: ["Century Gothic", "Montserrat", "sans-serif"],

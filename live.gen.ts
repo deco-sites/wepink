@@ -21,16 +21,17 @@ import * as $$$$$$$$1 from "./sections/WhatsApp.tsx";
 import * as $$$$$$$$2 from "./sections/SearchResult.tsx";
 import * as $$$$$$$$3 from "./sections/Header.tsx";
 import * as $$$$$$$$4 from "./sections/Carousel.tsx";
-import * as $$$$$$$$5 from "./sections/Features.tsx";
-import * as $$$$$$$$6 from "./sections/Footer.tsx";
-import * as $$$$$$$$7 from "./sections/Highlights.tsx";
-import * as $$$$$$$$8 from "./sections/BannerGrid.tsx";
-import * as $$$$$$$$9 from "./sections/WishlistGallery.tsx";
-import * as $$$$$$$$10 from "./sections/BannerPLP.tsx";
-import * as $$$$$$$$11 from "./sections/LinkTree.tsx";
-import * as $$$$$$$$12 from "./sections/ProductDetails.tsx";
-import * as $$$$$$$$13 from "./sections/DesignSystem.tsx";
-import * as $$$$$$$$14 from "./sections/ProductShelf.tsx";
+import * as $$$$$$$$5 from "./sections/FeaturedProduct.tsx";
+import * as $$$$$$$$6 from "./sections/Features.tsx";
+import * as $$$$$$$$7 from "./sections/Footer.tsx";
+import * as $$$$$$$$8 from "./sections/Highlights.tsx";
+import * as $$$$$$$$9 from "./sections/BannerGrid.tsx";
+import * as $$$$$$$$10 from "./sections/WishlistGallery.tsx";
+import * as $$$$$$$$11 from "./sections/BannerPLP.tsx";
+import * as $$$$$$$$12 from "./sections/LinkTree.tsx";
+import * as $$$$$$$$13 from "./sections/ProductDetails.tsx";
+import * as $$$$$$$$14 from "./sections/DesignSystem.tsx";
+import * as $$$$$$$$15 from "./sections/ProductShelf.tsx";
 import * as $live_middleware from "$live/routes/_middleware.ts";
 import * as $live_workbench from "$live/routes/live/workbench.ts";
 import * as $live_invoke from "$live/routes/live/invoke/index.ts";
@@ -128,21 +129,22 @@ const manifest = {
     "deco-sites/std/sections/SEO.tsx": i2$$$1,
     "deco-sites/std/sections/SEOPDP.tsx": i2$$$8,
     "deco-sites/std/sections/SEOPLP.tsx": i2$$$2,
-    "deco-sites/wepink/sections/BannerGrid.tsx": $$$$$$$$8,
-    "deco-sites/wepink/sections/BannerPLP.tsx": $$$$$$$$10,
+    "deco-sites/wepink/sections/BannerGrid.tsx": $$$$$$$$9,
+    "deco-sites/wepink/sections/BannerPLP.tsx": $$$$$$$$11,
     "deco-sites/wepink/sections/Carousel.tsx": $$$$$$$$4,
     "deco-sites/wepink/sections/CookieConsent.tsx": $$$$$$$$0,
-    "deco-sites/wepink/sections/DesignSystem.tsx": $$$$$$$$13,
-    "deco-sites/wepink/sections/Features.tsx": $$$$$$$$5,
-    "deco-sites/wepink/sections/Footer.tsx": $$$$$$$$6,
+    "deco-sites/wepink/sections/DesignSystem.tsx": $$$$$$$$14,
+    "deco-sites/wepink/sections/FeaturedProduct.tsx": $$$$$$$$5,
+    "deco-sites/wepink/sections/Features.tsx": $$$$$$$$6,
+    "deco-sites/wepink/sections/Footer.tsx": $$$$$$$$7,
     "deco-sites/wepink/sections/Header.tsx": $$$$$$$$3,
-    "deco-sites/wepink/sections/Highlights.tsx": $$$$$$$$7,
-    "deco-sites/wepink/sections/LinkTree.tsx": $$$$$$$$11,
-    "deco-sites/wepink/sections/ProductDetails.tsx": $$$$$$$$12,
-    "deco-sites/wepink/sections/ProductShelf.tsx": $$$$$$$$14,
+    "deco-sites/wepink/sections/Highlights.tsx": $$$$$$$$8,
+    "deco-sites/wepink/sections/LinkTree.tsx": $$$$$$$$12,
+    "deco-sites/wepink/sections/ProductDetails.tsx": $$$$$$$$13,
+    "deco-sites/wepink/sections/ProductShelf.tsx": $$$$$$$$15,
     "deco-sites/wepink/sections/SearchResult.tsx": $$$$$$$$2,
     "deco-sites/wepink/sections/WhatsApp.tsx": $$$$$$$$1,
-    "deco-sites/wepink/sections/WishlistGallery.tsx": $$$$$$$$9,
+    "deco-sites/wepink/sections/WishlistGallery.tsx": $$$$$$$$10,
   },
   "handlers": {
     "$live/handlers/devPage.ts": i2$$$$2,

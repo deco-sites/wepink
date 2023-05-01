@@ -134,7 +134,7 @@ function BannerCarousel({ images, preload, interval }: Props) {
       id={id}
       class="relative mb-9 lg:mb-12 px-px"
     >
-      <Slider class="">
+      <Slider>
         {images?.map((image, index) => (
           <BannerItem image={image} lcp={index === 0 && preload} />
         ))}

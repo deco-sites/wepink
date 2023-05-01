@@ -31,7 +31,7 @@ function ProductShelf({
   return (
     <Container
       id={id}
-      class="a-10 px-0"
+      class="a-10 px-0 mb-16"
     >
       <SectionTitle title={title} />
       <div class="flex items-center gap-5 px-2 lg:px-0">
@@ -48,7 +48,7 @@ function ProductShelf({
         </div>
 
         <Slider
-          class="gap-4 lg:gap-14 col-span-full row-start-2 row-end-5"
+          class="gap-4 lg:gap-14 col-span-full row-start-2 row-end-5 scrollbar-none"
           snap="snap-center sm:snap-start block first:ml-6 sm:first:ml-0 last:mr-6 sm:last:mr-0"
         >
           {products?.map((product) => (
