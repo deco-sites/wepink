@@ -1473,6 +1473,27 @@
               "default": "deco-sites/std/functions/vtexWishlist.ts"
             }
           }
+        },
+        {
+          "title": "deco-sites/wepink/functions/vtexProductListingPage.ts",
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy93ZXBpbmsvZnVuY3Rpb25zL3Z0ZXhQcm9kdWN0TGlzdGluZ1BhZ2UudHM=@Props"
+            }
+          ],
+          "required": [
+            "__resolveType"
+          ],
+          "properties": {
+            "__resolveType": {
+              "type": "string",
+              "enum": [
+                "deco-sites/wepink/functions/vtexProductListingPage.ts"
+              ],
+              "default": "deco-sites/wepink/functions/vtexProductListingPage.ts"
+            }
+          }
         }
       ]
     },
@@ -2135,6 +2156,53 @@
         "count"
       ],
       "title": "deco-sites/std/functions/vtexWishlist.ts@Props"
+    },
+    "ZGVjby1zaXRlcy93ZXBpbmsvZnVuY3Rpb25zL3Z0ZXhQcm9kdWN0TGlzdGluZ1BhZ2UudHM=@Props": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "overides the query term",
+          "title": "Query"
+        },
+        "count": {
+          "type": "number",
+          "title": "Count",
+          "description": "number of products per page to display"
+        },
+        "currentPage": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "title": "Current Page"
+        },
+        "fuzzy": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "automatic"
+            },
+            {
+              "type": "string",
+              "const": "disabled"
+            },
+            {
+              "type": "string",
+              "const": "enabled"
+            }
+          ],
+          "type": "string",
+          "title": "Fuzzy"
+        }
+      },
+      "required": [
+        "count"
+      ],
+      "title": "deco-sites/wepink/functions/vtexProductListingPage.ts@Props"
     },
     "ZGVjby1jeC9saXZlL2Jsb2Nrcy9hY2NvdW50LnRz@Account": {
       "type": "object",
@@ -4056,6 +4124,54 @@
       "required": [],
       "title": "Columns"
     },
+    "ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy9wcm9kdWN0L1NlYXJjaFJlc3VsdC50c3g=@Props": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@ProductListingPage|null",
+          "title": "Page"
+        },
+        "variant": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "aside"
+            },
+            {
+              "type": "string",
+              "const": "drawer"
+            }
+          ],
+          "type": "string",
+          "description": "Use drawer for mobile like behavior on desktop. Aside for rendering the filters alongside the products",
+          "title": "Variant"
+        },
+        "columns": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3RHYWxsZXJ5LnRzeA==@Columns",
+          "description": "Number of products per line on grid",
+          "title": "Columns"
+        }
+      },
+      "required": [
+        "page",
+        "columns"
+      ],
+      "title": "deco-sites/wepink/components/product/SearchResult.tsx@Props"
+    },
+    "ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy91aS9XaGF0c0FwcC50c3g=@Props": {
+      "type": "object",
+      "properties": {
+        "phone": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "title": "Phone"
+        }
+      },
+      "required": [],
+      "title": "deco-sites/wepink/components/ui/WhatsApp.tsx@Props"
+    },
     "ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy9zZWFyY2gvU2VhcmNoUmVzdWx0LnRzeA==@Props": {
       "type": "object",
       "properties": {
@@ -4089,20 +4205,6 @@
         "columns"
       ],
       "title": "deco-sites/wepink/components/search/SearchResult.tsx@Props"
-    },
-    "ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy91aS9XaGF0c0FwcC50c3g=@Props": {
-      "type": "object",
-      "properties": {
-        "phone": {
-          "type": [
-            "number",
-            "null"
-          ],
-          "title": "Phone"
-        }
-      },
-      "required": [],
-      "title": "deco-sites/wepink/components/ui/WhatsApp.tsx@Props"
     },
     "ZGVjby1jeC9saXZlL21hdGNoZXJzL01hdGNoRGF0ZS50cw==@Props": {
       "type": "object",
@@ -4632,6 +4734,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy93ZXBpbmsvZnVuY3Rpb25zL3Z0ZXhQcm9kdWN0TGlzdGluZ1BhZ2UudHM=": {
+      "title": "deco-sites/wepink/functions/vtexProductListingPage.ts",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy93ZXBpbmsvZnVuY3Rpb25zL3Z0ZXhQcm9kdWN0TGlzdGluZ1BhZ2UudHM=@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/wepink/functions/vtexProductListingPage.ts"
+          ],
+          "default": "deco-sites/wepink/functions/vtexProductListingPage.ts"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9zdGQvYWNjb3VudHMvb2NjLnRz": {
       "title": "deco-sites/std/accounts/occ.ts",
       "type": "object",
@@ -4867,6 +4990,22 @@
             "./islands/ShippingSimulation.tsx"
           ],
           "default": "./islands/ShippingSimulation.tsx"
+        }
+      }
+    },
+    "Li9pc2xhbmRzL1Nob3dNb3JlUHJvZHVjdHMudHN4": {
+      "title": "./islands/ShowMoreProducts.tsx",
+      "type": "object",
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/ShowMoreProducts.tsx"
+          ],
+          "default": "./islands/ShowMoreProducts.tsx"
         }
       }
     },
@@ -5532,7 +5671,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy9zZWFyY2gvU2VhcmNoUmVzdWx0LnRzeA==@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy9wcm9kdWN0L1NlYXJjaFJlc3VsdC50c3g=@Props"
         }
       ],
       "required": [
@@ -5868,6 +6007,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvZnVuY3Rpb25zL3Z0ZXhXaXNobGlzdC50cw=="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy93ZXBpbmsvZnVuY3Rpb25zL3Z0ZXhQcm9kdWN0TGlzdGluZ1BhZ2UudHM="
         }
       ]
     },
@@ -5923,6 +6065,9 @@
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL1NoaXBwaW5nU2ltdWxhdGlvbi50c3g="
+        },
+        {
+          "$ref": "#/definitions/Li9pc2xhbmRzL1Nob3dNb3JlUHJvZHVjdHMudHN4"
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL1NsaWRlckpTLnRzeA=="

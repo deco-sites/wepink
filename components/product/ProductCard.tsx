@@ -1,5 +1,6 @@
 import ButtonSendEvent from "deco-sites/fashion/components/ButtonSendEvent.tsx";
 import Text from "deco-sites/fashion/components/ui/Text.tsx";
+import Button from "deco-sites/fashion/components/ui/Button.tsx";
 import AddToCartButton from "deco-sites/fashion/islands/AddToCartButton.tsx";
 import { formatPrice } from "deco-sites/fashion/sdk/format.ts";
 import { useOffer } from "deco-sites/fashion/sdk/useOffer.ts";
@@ -89,26 +90,13 @@ function ProductCard({ product, preload, itemListName }: Props) {
                 backdropFilter: "blur(2px)",
               }}
             >
-              <ButtonSendEvent
+              <Button
                 as="a"
                 href={product.url}
                 class="flex-1 mr-2.5"
-                event={{
-                  name: "select_item",
-                  params: {
-                    item_list_name: itemListName,
-                    items: [
-                      mapProductToAnalyticsItem({
-                        product,
-                        price,
-                        listPrice,
-                      }),
-                    ],
-                  },
-                }}
               >
                 Comprar
-              </ButtonSendEvent>
+              </Button>
               <AddToCartButton
                 variant="shelf"
                 skuId={productID}

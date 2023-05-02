@@ -35,8 +35,6 @@ const storeHasScrolledPast = (root: HTMLElement, threshold: number) => {
 };
 
 const setup = ({ rootId, threshold = 100 }: Props) => {
-  console.log("setup", rootId, threshold);
-
   const root = document.getElementById(rootId);
 
   if (!root) {

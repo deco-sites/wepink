@@ -4,18 +4,20 @@
 
 import config from "./deno.json" assert { type: "json" };
 import { DecoManifest } from "$live/types.ts";
+import * as $0 from "./functions/vtexProductListingPage.ts";
 import * as $$$$0 from "./routes/api/[...catchall].tsx";
 import * as $$$$1 from "./routes/_app.tsx";
 import * as $$$$$0 from "./islands/AddToCartButton.tsx";
-import * as $$$$$1 from "./islands/ShippingSimulation.tsx";
-import * as $$$$$2 from "./islands/SliderJS.tsx";
-import * as $$$$$3 from "./islands/WishlistButton.tsx";
-import * as $$$$$4 from "./islands/SearchControls.tsx";
-import * as $$$$$5 from "./islands/HasScrolledPastThresholdDataAttributeSetup.tsx";
-import * as $$$$$6 from "./islands/HeaderButton.tsx";
-import * as $$$$$7 from "./islands/HeaderSearchBar.tsx";
-import * as $$$$$8 from "./islands/HeaderModals.tsx";
-import * as $$$$$9 from "./islands/ProductImageZoom.tsx";
+import * as $$$$$1 from "./islands/ShowMoreProducts.tsx";
+import * as $$$$$2 from "./islands/ShippingSimulation.tsx";
+import * as $$$$$3 from "./islands/SliderJS.tsx";
+import * as $$$$$4 from "./islands/WishlistButton.tsx";
+import * as $$$$$5 from "./islands/SearchControls.tsx";
+import * as $$$$$6 from "./islands/HasScrolledPastThresholdDataAttributeSetup.tsx";
+import * as $$$$$7 from "./islands/HeaderButton.tsx";
+import * as $$$$$8 from "./islands/HeaderSearchBar.tsx";
+import * as $$$$$9 from "./islands/HeaderModals.tsx";
+import * as $$$$$10 from "./islands/ProductImageZoom.tsx";
 import * as $$$$$$$$0 from "./sections/CookieConsent.tsx";
 import * as $$$$$$$$1 from "./sections/WhatsApp.tsx";
 import * as $$$$$$$$2 from "./sections/SearchResult.tsx";
@@ -91,6 +93,27 @@ import * as i2$$$7 from "deco-sites/std/sections/configVTEX.global.tsx";
 import * as i2$$$8 from "deco-sites/std/sections/SEOPDP.tsx";
 
 const manifest = {
+  "functions": {
+    "deco-sites/std/functions/occProductDetailsPage.ts": i2$10,
+    "deco-sites/std/functions/shopifyProductDetailsPage.ts": i2$16,
+    "deco-sites/std/functions/shopifyProductList.ts": i2$15,
+    "deco-sites/std/functions/shopifyProductListingPage.ts": i2$8,
+    "deco-sites/std/functions/vndaProductDetailsPage.ts": i2$3,
+    "deco-sites/std/functions/vndaProductList.ts": i2$2,
+    "deco-sites/std/functions/vndaProductListingPage.ts": i2$11,
+    "deco-sites/std/functions/vtexConfig.ts": i2$0,
+    "deco-sites/std/functions/vtexLegacyProductDetailsPage.ts": i2$4,
+    "deco-sites/std/functions/vtexLegacyProductList.ts": i2$14,
+    "deco-sites/std/functions/vtexLegacyProductListingPage.ts": i2$12,
+    "deco-sites/std/functions/vtexLegacyRelatedProductsLoader.ts": i2$17,
+    "deco-sites/std/functions/vtexNavbar.ts": i2$6,
+    "deco-sites/std/functions/vtexProductDetailsPage.ts": i2$13,
+    "deco-sites/std/functions/vtexProductList.ts": i2$9,
+    "deco-sites/std/functions/vtexProductListingPage.ts": i2$1,
+    "deco-sites/std/functions/vtexSuggestions.ts": i2$5,
+    "deco-sites/std/functions/vtexWishlist.ts": i2$7,
+    "deco-sites/wepink/functions/vtexProductListingPage.ts": $0,
+  },
   "routes": {
     "./routes/_app.tsx": $$$$1,
     "./routes/_middleware.ts": $live_middleware,
@@ -106,15 +129,16 @@ const manifest = {
   },
   "islands": {
     "./islands/AddToCartButton.tsx": $$$$$0,
-    "./islands/HasScrolledPastThresholdDataAttributeSetup.tsx": $$$$$5,
-    "./islands/HeaderButton.tsx": $$$$$6,
-    "./islands/HeaderModals.tsx": $$$$$8,
-    "./islands/HeaderSearchBar.tsx": $$$$$7,
-    "./islands/ProductImageZoom.tsx": $$$$$9,
-    "./islands/SearchControls.tsx": $$$$$4,
-    "./islands/ShippingSimulation.tsx": $$$$$1,
-    "./islands/SliderJS.tsx": $$$$$2,
-    "./islands/WishlistButton.tsx": $$$$$3,
+    "./islands/HasScrolledPastThresholdDataAttributeSetup.tsx": $$$$$6,
+    "./islands/HeaderButton.tsx": $$$$$7,
+    "./islands/HeaderModals.tsx": $$$$$9,
+    "./islands/HeaderSearchBar.tsx": $$$$$8,
+    "./islands/ProductImageZoom.tsx": $$$$$10,
+    "./islands/SearchControls.tsx": $$$$$5,
+    "./islands/ShippingSimulation.tsx": $$$$$2,
+    "./islands/ShowMoreProducts.tsx": $$$$$1,
+    "./islands/SliderJS.tsx": $$$$$3,
+    "./islands/WishlistButton.tsx": $$$$$4,
   },
   "sections": {
     "$live/sections/PageInclude.tsx": i2$$$9,
@@ -167,26 +191,6 @@ const manifest = {
   "flags": {
     "$live/flags/audience.ts": i2$$$$$$$0,
     "$live/flags/everyone.ts": i2$$$$$$$1,
-  },
-  "functions": {
-    "deco-sites/std/functions/occProductDetailsPage.ts": i2$10,
-    "deco-sites/std/functions/shopifyProductDetailsPage.ts": i2$16,
-    "deco-sites/std/functions/shopifyProductList.ts": i2$15,
-    "deco-sites/std/functions/shopifyProductListingPage.ts": i2$8,
-    "deco-sites/std/functions/vndaProductDetailsPage.ts": i2$3,
-    "deco-sites/std/functions/vndaProductList.ts": i2$2,
-    "deco-sites/std/functions/vndaProductListingPage.ts": i2$11,
-    "deco-sites/std/functions/vtexConfig.ts": i2$0,
-    "deco-sites/std/functions/vtexLegacyProductDetailsPage.ts": i2$4,
-    "deco-sites/std/functions/vtexLegacyProductList.ts": i2$14,
-    "deco-sites/std/functions/vtexLegacyProductListingPage.ts": i2$12,
-    "deco-sites/std/functions/vtexLegacyRelatedProductsLoader.ts": i2$17,
-    "deco-sites/std/functions/vtexNavbar.ts": i2$6,
-    "deco-sites/std/functions/vtexProductDetailsPage.ts": i2$13,
-    "deco-sites/std/functions/vtexProductList.ts": i2$9,
-    "deco-sites/std/functions/vtexProductListingPage.ts": i2$1,
-    "deco-sites/std/functions/vtexSuggestions.ts": i2$5,
-    "deco-sites/std/functions/vtexWishlist.ts": i2$7,
   },
   "accounts": {
     "deco-sites/std/accounts/occ.ts": i2$$4,
