@@ -1,31 +1,30 @@
-import ViewSendEvent from "deco-sites/fashion/components/ViewSendEvent.tsx";
 import ProductGallery from "deco-sites/fashion/components/product/ProductGallery.tsx";
 import Button from "deco-sites/fashion/components/ui/Button.tsx";
-import Container from "deco-sites/fashion/components/ui/Container.tsx";
 import { useMoreProducts } from "deco-sites/fashion/sdk/useMoreProducts.ts";
-import { useOffer } from "deco-sites/fashion/sdk/useOffer.ts";
-import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
+import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
 
 interface Props {
-  initialPage: number;
+  initialPage: ProductListingPage;
 }
 
 function ShowMoreProducts({ initialPage }: Props) {
   const { fetchMore, page } = useMoreProducts();
   const products = page.value?.products ?? [];
-  const pageToFetch = page.value?.pageInfo.currentPage ?? 0;
+
+  console.log(initialPage.pageInfo);
+  const nextPage = initialPage.pageInfo?.currentPage + 1;
 
   return (
-    <div>
-      {/* <ProductGallery products={products} /> */}
-
+    <div class="flex flex-col items-center">
       <ProductGallery products={products} />
-
-      <Button
-        onClick={() => fetchMore(pageToFetch + 1)}
-      >
-        teste
-      </Button>
+      {initialPage?.pageInfo?.nextPage && (
+        <Button
+          class="!h-10 w-32 mt-3"
+          onClick={() => fetchMore(nextPage)}
+        >
+          mostrar mais
+        </Button>
+      )}
     </div>
   );
 }

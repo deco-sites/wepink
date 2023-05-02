@@ -1,19 +1,12 @@
-import Filters from "deco-sites/fashion/components/search/Filters.tsx";
-import Container from "deco-sites/fashion/components/ui/Container.tsx";
-import Button from "deco-sites/fashion/components/ui/Button.tsx";
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
-import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
-import SearchControls from "deco-sites/fashion/islands/SearchControls.tsx";
-import ViewSendEvent from "deco-sites/fashion/components/ViewSendEvent.tsx";
-import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
-import { useOffer } from "deco-sites/fashion/sdk/useOffer.ts";
+import type { LoaderReturnType } from "$live/types.ts";
 import ProductGallery, {
   Columns,
 } from "deco-sites/fashion/components/product/ProductGallery.tsx";
-import type { LoaderReturnType } from "$live/types.ts";
+import Container from "deco-sites/fashion/components/ui/Container.tsx";
+import Text from "deco-sites/fashion/components/ui/Text.tsx";
 import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
-import { useMoreProducts } from "deco-sites/fashion/sdk/useMoreProducts.ts";
-import ShowMoreProducts from "../../islands/ShowMoreProducts.tsx";
+import ShowMoreProducts from "deco-sites/fashion/islands/ShowMoreProducts.tsx";
+import SectionTitle from "deco-sites/fashion/components/ui/SectionTitle.tsx";
 
 export interface Props {
   page: LoaderReturnType<ProductListingPage | null>;
@@ -39,14 +32,16 @@ function Result({
   page,
 }: Omit<Props, "page"> & { page: ProductListingPage }) {
   const { products, pageInfo } = page;
-  const { fetchMore, page: _page } = useMoreProducts();
 
   return (
     <>
       <Container class="px-4 sm:py-10">
+        <SectionTitle title="uma linha completa pra você" />
+
         <ProductGallery products={products} />
+
         <ShowMoreProducts
-          initialPage={pageInfo.currentPage ?? 0}
+          initialPage={page}
         />
       </Container>
     </>
