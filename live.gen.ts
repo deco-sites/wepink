@@ -35,6 +35,7 @@ import * as $$$$$$$$13 from "./sections/LinkTree.tsx";
 import * as $$$$$$$$14 from "./sections/ProductDetails.tsx";
 import * as $$$$$$$$15 from "./sections/DesignSystem.tsx";
 import * as $$$$$$$$16 from "./sections/ProductShelf.tsx";
+import * as $$$$$$$$17 from "./sections/BlogPosts.tsx";
 import * as $live_middleware from "$live/routes/_middleware.ts";
 import * as $live_workbench from "$live/routes/live/workbench.ts";
 import * as $live_invoke from "$live/routes/live/invoke/index.ts";
@@ -156,6 +157,7 @@ const manifest = {
     "deco-sites/std/sections/SEOPLP.tsx": i2$$$2,
     "deco-sites/wepink/sections/BannerGrid.tsx": $$$$$$$$10,
     "deco-sites/wepink/sections/BannerPLP.tsx": $$$$$$$$12,
+    "deco-sites/wepink/sections/BlogPosts.tsx": $$$$$$$$17,
     "deco-sites/wepink/sections/Carousel.tsx": $$$$$$$$4,
     "deco-sites/wepink/sections/CookieConsent.tsx": $$$$$$$$0,
     "deco-sites/wepink/sections/DesignSystem.tsx": $$$$$$$$15,

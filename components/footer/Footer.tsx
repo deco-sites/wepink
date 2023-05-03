@@ -4,7 +4,6 @@ import Icon, {
 import Text from "deco-sites/fashion/components/ui/Text.tsx";
 import Container from "deco-sites/fashion/components/ui/Container.tsx";
 
-import Newsletter from "./Newsletter.tsx";
 import type { ComponentChildren } from "preact";
 
 export type IconItem = { icon: AvailableIcons };
@@ -65,10 +64,6 @@ function Footer({ sections = [] }: Props) {
     <footer class="w-full bg-primary flex flex-col divide-y divide-primary-content">
       <div>
         <Container class="w-full flex flex-col divide-y divide-primary-content">
-          <FooterContainer>
-            <Newsletter />
-          </FooterContainer>
-
           <FooterContainer>
             {/* Desktop view */}
             <ul class="hidden sm:flex flex-row gap-20">

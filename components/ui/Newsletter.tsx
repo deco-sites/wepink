@@ -1,6 +1,6 @@
 function Newsletter() {
   return (
-    <div class="bg-primary flex items-center justify-center mb-4 px-7 py-5 sm:py-20 sm:px-0">
+    <div class="bg-primary flex items-center justify-center mb-[22px] px-7 py-5 sm:py-20 sm:px-0">
       <div class="w-full max-w-[650px]">
         <h4 class="text-lg sm:text-[32px] text-white font-bold text-center sm:leading-10 mb-4 sm:mb-10">
           receba dicas e novidades toda semana no seu e-mail
