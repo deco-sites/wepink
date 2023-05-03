@@ -5624,6 +5624,22 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy93ZXBpbmsvc2VjdGlvbnMvTmV3c2xldHRlci50c3g=": {
+      "title": "deco-sites/wepink/sections/Newsletter.tsx",
+      "type": "object",
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/wepink/sections/Newsletter.tsx"
+          ],
+          "default": "deco-sites/wepink/sections/Newsletter.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy93ZXBpbmsvc2VjdGlvbnMvUHJvZHVjdERldGFpbHMudHN4": {
       "title": "deco-sites/wepink/sections/ProductDetails.tsx",
       "type": "object",
@@ -6182,6 +6198,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy93ZXBpbmsvc2VjdGlvbnMvTGlua1RyZWUudHN4"
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy93ZXBpbmsvc2VjdGlvbnMvTmV3c2xldHRlci50c3g="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy93ZXBpbmsvc2VjdGlvbnMvUHJvZHVjdERldGFpbHMudHN4"

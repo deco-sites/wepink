@@ -31,11 +31,11 @@ function NotFound() {
 function Result({
   page,
 }: Omit<Props, "page"> & { page: ProductListingPage }) {
-  const { products, pageInfo } = page;
+  const { products } = page;
 
   return (
     <>
-      <Container class="px-4 sm:py-10">
+      <Container class="mb-5 sm:mb-0 px-4 sm:py-10">
         <SectionTitle title="uma linha completa pra você" />
 
         <ProductGallery products={products} />

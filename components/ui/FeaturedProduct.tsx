@@ -20,7 +20,7 @@ function FeaturedProduct({ products }: Props) {
   const { price } = useOffer(offers);
 
   return (
-    <Container class="px-3 lg:px-0">
+    <Container class="px-3 lg:px-0 mb-10 sm:mb-6">
       <div class="flex flex-col lg:flex-row justify-center gap-x-3 gap-y-1.5 rounded-md overflow-hidden border lg:rounded-none lg:overflow-visible lg:border-none">
         <Image
           src={image?.[0].url!}

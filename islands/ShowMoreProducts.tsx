@@ -11,8 +11,8 @@ function ShowMoreProducts({ initialPage }: Props) {
   const { fetchMore, page } = useMoreProducts();
   const products = page.value?.products ?? [];
 
-  console.log(initialPage.pageInfo);
-  const nextPage = initialPage.pageInfo?.currentPage + 1;
+  const nextPage =
+    (page.value?.pageInfo.currentPage ?? initialPage.pageInfo?.currentPage) + 1;
 
   return (
     <div class="flex flex-col items-center">
