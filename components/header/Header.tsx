@@ -50,7 +50,7 @@ function Header(
 ) {
   const searchBar = { ..._searchBar, products, suggestions };
   return (
-    <header class="h-[102px] lg:h-[128px]">
+    <header id="header" class="h-[102px] lg:h-[128px]">
       <div class="fixed w-full z-50">
         <Alert alerts={alerts} />
         <Navbar items={navItems} searchBar={searchBar} />

@@ -1,179 +1,149 @@
-import Icon, {
-  AvailableIcons,
-} from "deco-sites/fashion/components/ui/Icon.tsx";
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
+import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
 import Container from "deco-sites/fashion/components/ui/Container.tsx";
+import { asset } from "$fresh/runtime.ts";
+import Image from "deco-sites/std/components/Image.tsx";
 
-import type { ComponentChildren } from "preact";
-
-export type IconItem = { icon: AvailableIcons };
-export type StringItem = {
-  label: string;
+export interface Item {
+  title: string;
   href: string;
-};
-
-export type Item = StringItem | IconItem;
-
-export type Section = {
-  label: string;
-  children: Item[];
-};
-
-const isIcon = (item: Item): item is IconItem =>
-  // deno-lint-ignore no-explicit-any
-  typeof (item as any)?.icon === "string";
-
-function SectionItem({ item }: { item: Item }) {
-  return (
-    <Text variant="caption" tone="primary-content">
-      {isIcon(item)
-        ? (
-          <div class="border-base-100 border border-solid py-1.5 px-2.5">
-            <Icon
-              id={item.icon}
-              width={25}
-              height={20}
-              strokeWidth={0.01}
-            />
-          </div>
-        )
-        : (
-          <a href={item.href}>
-            {item.label}
-          </a>
-        )}
-    </Text>
-  );
-}
-
-function FooterContainer(
-  { children, class: _class = "" }: {
-    class?: string;
-    children: ComponentChildren;
-  },
-) {
-  return <div class={`py-6 px-4 sm:py-12 sm:px-0 ${_class}`}>{children}</div>;
 }
 
 export interface Props {
-  sections?: Section[];
+  items: Item[];
 }
 
-function Footer({ sections = [] }: Props) {
+function Footer({ items = [] }: Props) {
   return (
-    <footer class="w-full bg-primary flex flex-col divide-y divide-primary-content">
-      <div>
-        <Container class="w-full flex flex-col divide-y divide-primary-content">
-          <FooterContainer>
-            {/* Desktop view */}
-            <ul class="hidden sm:flex flex-row gap-20">
-              {sections.map((section) => (
-                <li>
-                  <div>
-                    <Text variant="heading-3" tone="primary-content">
-                      {section.label}
-                    </Text>
-
-                    <ul
-                      class={`flex ${
-                        isIcon(section.children[0]) ? "flex-row" : "flex-col"
-                      } gap-2 pt-2 flex-wrap`}
-                    >
-                      {section.children.map((item) => (
-                        <li>
-                          <SectionItem item={item} />
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </li>
-              ))}
-            </ul>
-
-            {/* Mobile view */}
-            <ul class="flex flex-col sm:hidden sm:flex-row gap-4">
-              {sections.map((section) => (
-                <li>
-                  <Text variant="body" tone="primary-content">
-                    <details>
-                      <summary>
-                        {section.label}
-                      </summary>
-
-                      <ul
-                        class={`flex ${
-                          isIcon(section.children[0]) ? "flex-row" : "flex-col"
-                        } gap-2 px-2 pt-2`}
-                      >
-                        {section.children.map((item) => (
-                          <li>
-                            <SectionItem item={item} />
-                          </li>
-                        ))}
-                      </ul>
-                    </details>
-                  </Text>
-                </li>
-              ))}
-            </ul>
-          </FooterContainer>
-        </Container>
-      </div>
-
-      <div>
-        <Container class="w-full">
-          <FooterContainer class="flex justify-between w-full">
-            <Text
-              class="flex items-center gap-1"
-              variant="body"
-              tone="primary-content"
+    <footer class="bg-primary lg:pb-40 pb-12">
+      <Container class="px-[24px] lg:px-[100px] pt-[60px] lg:pt-[80px] pb-[50px] lg:pb-[85px] flex flex-col lg:flex-row justify-between">
+        <div class="flex-1 mb-5 lg:mb-0">
+          <Icon
+            id="Logo"
+            class="text-white mb-7 lg:mb-12 h-[32px] w-[120px] lg:h-[48px] lg:w-[180px]"
+          />
+          <ul>
+            {items.map(({ title, href }) => (
+              <li>
+                <a href={href} class="flex items-center gap-x-2.5">
+                  <span class="text-sm leading-[34px] text-primary-content">
+                    {title}
+                  </span>
+                  <Icon
+                    id="ArrowRight"
+                    height={9}
+                    width={9}
+                    class="text-primary-content"
+                  />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="flex flex-col flex-1 items-center gap-10">
+          <div class="flex gap-x-5">
+            <a href="#">
+              <Icon
+                id="FooterInstagram"
+                height={51}
+                width={51}
+              />
+            </a>
+            <a href="#">
+              <Icon
+                id="FooterFacebook"
+                height={51}
+                width={51}
+              />
+            </a>
+          </div>
+          <div class="flex items-center gap-x-3 ">
+            <a
+              id="seloEbit"
+              href="http://www.ebit.com.br/116625/selo"
+              target="_blank"
             >
-              Powered by{" "}
-              <a
-                href="https://www.deco.cx"
-                aria-label="powered by https://www.deco.cx"
-              >
-                <Icon id="Deco" height={20} width={60} strokeWidth={0.01} />
-              </a>
-            </Text>
-
-            <ul class="flex items-center justify-center gap-2">
-              <li>
-                <a
-                  href="https://www.instagram.com/deco.cx"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram logo"
-                >
-                  <Icon
-                    class="text-primary-content"
-                    width={32}
-                    height={32}
-                    id="Instagram"
-                    strokeWidth={1}
-                  />
-                </a>
-              </li>
-              <li>
-                <a
-                  href="http://www.deco.cx/discord"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Discord logo"
-                >
-                  <Icon
-                    class="text-primary-content"
-                    width={32}
-                    height={32}
-                    id="Discord"
-                    strokeWidth={5}
-                  />
-                </a>
-              </li>
-            </ul>
-          </FooterContainer>
-        </Container>
-      </div>
+              <Image
+                src="https://newimgebit-a.akamaihd.net/ebitBR/selo/img_116625.png"
+                style="border: 0px;"
+                width={50}
+              />
+            </a>
+            <a
+              href="https://www.reclameaqui.com.br/empresa/wepink/?utm_source=referral&utm_medium=embbed&utm_campaign=reputacao&utm_term=horizontal"
+              target="_blank"
+            >
+              <Image
+                src={"https://iili.io/HShPMe2.md.png"}
+                alt="Reclame aqui"
+                width={136}
+                class="rounded-sm"
+              />
+            </a>
+          </div>
+          <a href="#header" class="hidden lg:flex items-center gap-3">
+            <Icon id="ArrowTop" height={24} width={24} />
+            <span class="text-white">
+              voltar ao topo
+            </span>
+          </a>
+        </div>
+        <div class="flex flex-col flex-1 items-center gap-5 lg:gap-7 mt-20">
+          <div class="flex gap-3 lg:gap-5">
+            <Image
+              src="https://wepink.vtexassets.com/assets/vtex/assets-builder/wepink.store-theme/0.0.1009/svg/visa___e411afdf7f4f5a87e368bb90951f8e21.svg"
+              width={50}
+              class="w-[35px] lg:w-[50px]"
+            />
+            <Image
+              src="https://wepink.vtexassets.com/assets/vtex/assets-builder/wepink.store-theme/0.0.1009/svg/mastercard___bef22abd904b16a89535383905436dd7.svg"
+              width={44}
+              class="w-[30px] lg:w-[44px]"
+            />
+            <Image
+              src="https://wepink.vtexassets.com/assets/vtex/assets-builder/wepink.store-theme/0.0.1009/svg/diners-club___d5f0c1f692b4080d769cf5f1502612b4.svg"
+              width={50}
+              class="w-[35px] lg:w-[50px]"
+            />
+            <Image
+              src="https://wepink.vtexassets.com/assets/vtex/assets-builder/wepink.store-theme/0.0.1009/svg/amex___045d938b33e402cfa188a879eb063008.svg"
+              width={50}
+              class="w-[35px] lg:w-[50px]"
+            />
+          </div>
+          <div class="flex gap-3 lg:gap-5">
+            <Image
+              src="https://wepink.vtexassets.com/assets/vtex/assets-builder/wepink.store-theme/0.0.1009/svg/picpay___b49ce7fb6b81ca97c545131b12a2d2bd.svg"
+              width={50}
+              class="h-8 lg:h-11 w-auto"
+            />
+            <Image
+              src="https://wepink.vtexassets.com/assets/vtex/assets-builder/wepink.store-theme/0.0.1009/svg/boleto___cdd876a1d31c662ed837adb5a5824799.svg"
+              width={50}
+              class="h-8 lg:h-11 w-auto"
+            />
+            <Image
+              src="https://wepink.vtexassets.com/assets/vtex/assets-builder/wepink.store-theme/0.0.1009/svg/pix___01c4699613640d38300e9f0e7f2a621d.svg"
+              width={50}
+              class="h-8 lg:h-11 w-auto"
+            />
+          </div>
+          <a href="#header" class="flex lg:hidden items-center gap-3 mt-3">
+            <Icon id="ArrowTop" height={24} width={24} />
+            <span class="text-white text-xs">
+              voltar ao topo
+            </span>
+          </a>
+        </div>
+      </Container>
+      <Container class="flex gap-1 justify-center text-white text-xs lg:text-sm mb-10">
+        <a href="">Politica de privacidade</a>
+        |
+        <a href="">Termos de uso</a>
+      </Container>
+      <Container class="flex lg:hidden gap-1 justify-center text-white text-xs px-6 text-center">
+        Todos os direitos reservados © 2022 | SAVI COSMÉTICOS LTDA | CNPJ:
+        42.422.967/0001-01
+      </Container>
     </footer>
   );
 }
