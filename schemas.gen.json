@@ -4964,6 +4964,22 @@
         }
       }
     },
+    "Li9pc2xhbmRzL1pvb21hYmxlSW1hZ2UudHN4": {
+      "title": "./islands/ZoomableImage.tsx",
+      "type": "object",
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/ZoomableImage.tsx"
+          ],
+          "default": "./islands/ZoomableImage.tsx"
+        }
+      }
+    },
     "JGxpdmUvaGFuZGxlcnMvZGV2UGFnZS50cw==": {
       "title": "$live/handlers/devPage.ts",
       "type": "object",
@@ -6055,6 +6071,9 @@
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL1dpc2hsaXN0QnV0dG9uLnRzeA=="
+        },
+        {
+          "$ref": "#/definitions/Li9pc2xhbmRzL1pvb21hYmxlSW1hZ2UudHN4"
         }
       ]
     },
