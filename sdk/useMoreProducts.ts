@@ -1,6 +1,6 @@
 import { signal } from "@preact/signals";
 
-import { Runtime } from "deco-sites/std/commerce/sdk/runtime.ts";
+import { Runtime } from "deco-sites/wepink/runtime.ts";
 import { ProductListingPage } from "deco-sites/std/commerce/types.ts";
 
 const page = signal<ProductListingPage | null>(null);
@@ -8,9 +8,7 @@ const page = signal<ProductListingPage | null>(null);
 const fetchMoreProducts = async (pageToFetch: number) => {
   try {
     return await Runtime.invoke({
-      // @ts-ignore
       key: "deco-sites/wepink/functions/vtexProductListingPage.ts",
-      // @ts-ignore
       props: { count: 8, currentPage: pageToFetch },
     });
   } catch (error) {
@@ -27,12 +25,10 @@ const fetchMore = async (pageToFetch: number) => {
   url.searchParams.set("page", pageToFetch.toString());
   window.history.replaceState({}, "", url.toString());
 
-  // @ts-ignore
   page.value = {
     ..._page,
-    // @ts-ignore
     products: [...page.value?.products ?? [], ..._page?.products ?? []],
-  };
+  } as ProductListingPage;
 };
 
 const state = {

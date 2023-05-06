@@ -1,6 +1,5 @@
 import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
 import Container from "deco-sites/fashion/components/ui/Container.tsx";
-import { asset } from "$fresh/runtime.ts";
 import Image from "deco-sites/std/components/Image.tsx";
 
 export interface Item {
