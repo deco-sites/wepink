@@ -4,6 +4,7 @@ import type { BreadcrumbList } from "deco-sites/std/commerce/types.ts";
 
 interface Props {
   itemListElement: BreadcrumbList["itemListElement"];
+  productName?: string;
 }
 
 function Item({ name, item }: { name?: string; item?: string }) {
@@ -13,27 +14,39 @@ function Item({ name, item }: { name?: string; item?: string }) {
 
   return (
     <li class="whitespace-nowrap overflow-hidden text-ellipsis">
-      <a href={item} class="hover:underline">
-        <Text variant="caption">
-          {name}
-        </Text>
+      <a href={item}>
+        <span class="text-xs text-[#505050] underline">
+          {name.toLowerCase()}
+        </span>
       </a>
     </li>
   );
 }
 
-function Breadcrumb({ itemListElement = [] }: Props) {
+function Breadcrumb({ itemListElement = [], productName }: Props) {
   return (
     <ul class="flex flex-row gap-2 items-center w-full">
-      <Item name="Home" item="/" />
       {itemListElement.map((item) => (
         <>
-          <li class="mt-0.5">
-            <Icon id="ChevronRight" width={16} height={16} strokeWidth={2} />
-          </li>
           <Item {...item} />
+          <li class="mt-0.5">
+            <Icon
+              id="ChevronRight"
+              class="text-base-300"
+              width={10}
+              height={10}
+              strokeWidth={2}
+            />
+          </li>
         </>
       ))}
+      {productName && (
+        <li class="whitespace-nowrap overflow-hidden text-ellipsis">
+          <span class="text-xs font-bold text-[#505050]">
+            {productName.toLocaleLowerCase()}
+          </span>
+        </li>
+      )}
     </ul>
   );
 }

@@ -10,16 +10,18 @@ import * as $$$$1 from "./routes/api/[...catchall].tsx";
 import * as $$$$2 from "./routes/_app.tsx";
 import * as $$$$$0 from "./islands/AddToCartButton.tsx";
 import * as $$$$$1 from "./islands/ShowMoreProducts.tsx";
-import * as $$$$$2 from "./islands/ShippingSimulation.tsx";
-import * as $$$$$3 from "./islands/SliderJS.tsx";
-import * as $$$$$4 from "./islands/WishlistButton.tsx";
-import * as $$$$$5 from "./islands/SearchControls.tsx";
-import * as $$$$$6 from "./islands/HasScrolledPastThresholdDataAttributeSetup.tsx";
-import * as $$$$$7 from "./islands/ZoomableImage.tsx";
-import * as $$$$$8 from "./islands/HeaderButton.tsx";
-import * as $$$$$9 from "./islands/HeaderSearchBar.tsx";
-import * as $$$$$10 from "./islands/HeaderModals.tsx";
-import * as $$$$$11 from "./islands/ProductImageZoom.tsx";
+import * as $$$$$2 from "./islands/AddToCartWithQuantity.tsx";
+import * as $$$$$3 from "./islands/ShippingSimulation.tsx";
+import * as $$$$$4 from "./islands/TabsControlSetup.tsx";
+import * as $$$$$5 from "./islands/SliderJS.tsx";
+import * as $$$$$6 from "./islands/WishlistButton.tsx";
+import * as $$$$$7 from "./islands/SearchControls.tsx";
+import * as $$$$$8 from "./islands/HasScrolledPastThresholdDataAttributeSetup.tsx";
+import * as $$$$$9 from "./islands/ZoomableImage.tsx";
+import * as $$$$$10 from "./islands/HeaderButton.tsx";
+import * as $$$$$11 from "./islands/HeaderSearchBar.tsx";
+import * as $$$$$12 from "./islands/HeaderModals.tsx";
+import * as $$$$$13 from "./islands/ProductImageZoom.tsx";
 import * as $$$$$$$$0 from "./sections/CookieConsent.tsx";
 import * as $$$$$$$$1 from "./sections/WhatsApp.tsx";
 import * as $$$$$$$$2 from "./sections/SearchResult.tsx";
@@ -135,17 +137,19 @@ const manifest = {
   },
   "islands": {
     "./islands/AddToCartButton.tsx": $$$$$0,
-    "./islands/HasScrolledPastThresholdDataAttributeSetup.tsx": $$$$$6,
-    "./islands/HeaderButton.tsx": $$$$$8,
-    "./islands/HeaderModals.tsx": $$$$$10,
-    "./islands/HeaderSearchBar.tsx": $$$$$9,
-    "./islands/ProductImageZoom.tsx": $$$$$11,
-    "./islands/SearchControls.tsx": $$$$$5,
-    "./islands/ShippingSimulation.tsx": $$$$$2,
+    "./islands/AddToCartWithQuantity.tsx": $$$$$2,
+    "./islands/HasScrolledPastThresholdDataAttributeSetup.tsx": $$$$$8,
+    "./islands/HeaderButton.tsx": $$$$$10,
+    "./islands/HeaderModals.tsx": $$$$$12,
+    "./islands/HeaderSearchBar.tsx": $$$$$11,
+    "./islands/ProductImageZoom.tsx": $$$$$13,
+    "./islands/SearchControls.tsx": $$$$$7,
+    "./islands/ShippingSimulation.tsx": $$$$$3,
     "./islands/ShowMoreProducts.tsx": $$$$$1,
-    "./islands/SliderJS.tsx": $$$$$3,
-    "./islands/WishlistButton.tsx": $$$$$4,
-    "./islands/ZoomableImage.tsx": $$$$$7,
+    "./islands/SliderJS.tsx": $$$$$5,
+    "./islands/TabsControlSetup.tsx": $$$$$4,
+    "./islands/WishlistButton.tsx": $$$$$6,
+    "./islands/ZoomableImage.tsx": $$$$$9,
   },
   "sections": {
     "$live/sections/PageInclude.tsx": i2$$$9,

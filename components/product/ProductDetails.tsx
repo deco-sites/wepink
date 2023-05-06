@@ -1,27 +1,25 @@
-import { useId } from "preact/hooks";
-import AddToCartButton from "deco-sites/fashion/islands/AddToCartButton.tsx";
-import ShippingSimulation from "deco-sites/fashion/islands/ShippingSimulation.tsx";
-import Container from "deco-sites/fashion/components/ui/Container.tsx";
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
+import type { LoaderReturnType } from "$live/types.ts";
+import ViewSendEvent from "deco-sites/fashion/components/ViewSendEvent.tsx";
 import Breadcrumb from "deco-sites/fashion/components/ui/Breadcrumb.tsx";
 import Button from "deco-sites/fashion/components/ui/Button.tsx";
-import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
-import Image from "deco-sites/std/components/Image.tsx";
+import Container from "deco-sites/fashion/components/ui/Container.tsx";
 import {
   Slider,
   SliderDots,
 } from "deco-sites/fashion/components/ui/Slider.tsx";
 import SliderJS from "deco-sites/fashion/components/ui/SliderJS.tsx";
-import { useOffer } from "deco-sites/fashion/sdk/useOffer.ts";
+import Text from "deco-sites/fashion/components/ui/Text.tsx";
+import AddToCartWithQuantity from "deco-sites/fashion/islands/AddToCartWithQuantity.tsx";
+import ShippingSimulation from "deco-sites/fashion/islands/ShippingSimulation.tsx";
 import { formatPrice } from "deco-sites/fashion/sdk/format.ts";
-import type { LoaderReturnType } from "$live/types.ts";
+import { useOffer } from "deco-sites/fashion/sdk/useOffer.ts";
 import type { ProductDetailsPage } from "deco-sites/std/commerce/types.ts";
-import ViewSendEvent from "deco-sites/fashion/components/ViewSendEvent.tsx";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
+import Image from "deco-sites/std/components/Image.tsx";
+import { useId } from "preact/hooks";
+import TabsControlSetup from "deco-sites/fashion/islands/TabsControlSetup.tsx";
 
-import ProductSelector from "./ProductVariantSelector.tsx";
 import ProductImageZoom from "deco-sites/fashion/islands/ProductImageZoom.tsx";
-import WishlistButton from "../wishlist/WishlistButton.tsx";
 import ZoomableImage from "deco-sites/fashion/islands/ZoomableImage.tsx";
 
 export type Variant = "front-back" | "slider" | "auto";
@@ -74,44 +72,51 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
       {/* Breadcrumb */}
       <Breadcrumb
         itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
+        productName={name}
       />
       {/* Code and name */}
-      <div class="mt-4 sm:mt-8">
-        <div>
-          <Text tone="base-300" variant="caption">
-            Cod. {gtin}
-          </Text>
-        </div>
+      <div class="mt-4 sm:mt-3 mb-3">
         <h1>
-          <Text variant="heading-3">{name}</Text>
+          <span class="text-primary text-2xl font-bold">{name}</span>
         </h1>
       </div>
+      {/* Code and name */}
+      <div class="mb-3">
+        <span class="text-sm">
+          {description}
+        </span>
+      </div>
+      {/* Ratings */}
+      <div class="text-xs flex items-center gap-1 mb-2">
+        <strong>4.8 de 5</strong>
+        <Image
+          src="https://rate.trustvox.com.br/images/sprite.png"
+          width={100}
+          height={40}
+          class="h-5 object-cover object-bottom"
+        />
+        <strong>(57)</strong>
+      </div>
       {/* Prices */}
-      <div class="mt-4">
-        <div class="flex flex-row gap-2 items-center">
-          <Text
-            class="line-through"
-            tone="base-300"
-            variant="list-price"
-          >
+      <div class="mt-4 mb-9">
+        <div class="flex flex-col">
+          <span class="line-through font-bold text-[#8d8d8d]">
             {formatPrice(listPrice, offers!.priceCurrency!)}
-          </Text>
-          <Text tone="secondary" variant="heading-3">
-            {formatPrice(price, offers!.priceCurrency!)}
-          </Text>
+          </span>
+          <div class="flex items-center gap-2">
+            <span class="text-2xl font-bold">
+              {formatPrice(price, offers!.priceCurrency!)}
+            </span>
+            <span class="text-sm">
+              {installments}
+            </span>
+          </div>
         </div>
-        <Text tone="base-300" variant="caption">
-          {installments}
-        </Text>
       </div>
-      {/* Sku Selector */}
-      <div class="mt-4 sm:mt-6">
-        <ProductSelector product={product} />
-      </div>
-      {/* Add to Cart and Favorites button */}
-      <div class="mt-4 sm:mt-10 flex flex-col gap-2">
-        {seller && (
-          <AddToCartButton
+      {/* Add to Cart and quantity selector */}
+      {seller && (
+        <div class="mb-[54px]">
+          <AddToCartWithQuantity
             skuId={productID}
             sellerId={seller}
             price={price ?? 0}
@@ -119,34 +124,34 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
             name={product.name ?? ""}
             productGroupId={product.isVariantOf?.productGroupID ?? ""}
           />
-        )}
-        <WishlistButton
-          variant="full"
-          productId={isVariantOf?.productGroupID}
-          sku={productID}
-          title={name}
-        />
-      </div>
-      {/* Shipping Simulation */}
-      <div class="mt-8">
-        <ShippingSimulation
-          items={[{
-            id: Number(product.sku),
-            quantity: 1,
-            seller: seller ?? "1",
-          }]}
-        />
+        </div>
+      )}
+      {/* Benefits */}
+      <div class="bg-secondary py-[34px] px-6 rounded-xl">
+        <h3 class="text-primary text-2xl font-bold">Benefícios</h3>
+        <ul class="text-white text-sm font-bold list-disc py-5 px-4 leading-[26px]">
+          <li>Estimula a renovação celular</li>
+          <li>Atua no controle da oleosidade</li>
+          <li>Auxilia na uniformização do tom da pele</li>
+          <li>Clareia manchas</li>
+          <li>Hidrata profundamente</li>
+          <li>Estimula a produção de colágeno</li>
+          <li>Anti-aging, previne o envelhecimento e formação de rugas</li>
+        </ul>
       </div>
       {/* Description card */}
-      <div class="mt-4 sm:mt-6">
-        <Text variant="caption">
-          {description && (
-            <details>
-              <summary class="cursor-pointer">Descrição</summary>
-              <div class="ml-2 mt-2">{description}</div>
-            </details>
-          )}
-        </Text>
+      <div id="description" class="mt-4 sm:mt-6">
+        <div>
+          <button data-tab-button>tab1</button>
+          <button data-tab-button>tab2</button>
+          <button data-tab-button>tab3</button>
+        </div>
+        <div>
+          <div data-tab-content>tab1</div>
+          <div data-tab-content>tab2</div>
+          <div data-tab-content>tab3</div>
+        </div>
+        <TabsControlSetup rootId="description" />
       </div>
       <ViewSendEvent
         event={{
@@ -184,7 +189,7 @@ function Details({
           <SliderDots class="gap-2 sm:justify-start overflow-auto sm:px-0 flex-col">
             {images.map((img, _) => (
               <Image
-                class="rounded-xl w-[calc(100vw*177/1920)] aspect-square border border-red-500"
+                class="rounded-xl w-[calc(100vw*177/1920)] aspect-square"
                 width={177}
                 src={img.url!}
                 alt={img.alternateName}
@@ -198,9 +203,9 @@ function Details({
               {images.map((img, index) => (
                 <ZoomableImage
                   factor={2}
-                  type="hover"
+                  type="click"
                   src={img.url!}
-                  class="snap-center md:w-[calc(100vw*692/1920)] border border-red-500 aspect-square"
+                  class="snap-center md:w-[calc(100vw*692/1920)] aspect-square cursor-zoom-in"
                   alt={img.alternateName}
                   width={WIDTH}
                   height={HEIGHT}
@@ -222,7 +227,7 @@ function Details({
         </div>
 
         {/* Product Info */}
-        <div class="px-4 sm:px-0">
+        <div class="px-4 sm:px-8">
           <ProductInfo page={page} />
         </div>
       </div>

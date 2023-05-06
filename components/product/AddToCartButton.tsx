@@ -1,3 +1,5 @@
+import { useSignal } from "@preact/signals";
+
 import Button from "deco-sites/fashion/components/ui/Button.tsx";
 import Icon from "deco-sites/fashion/components/ui/Icon.tsx";
 import {
@@ -21,6 +23,7 @@ function AddToCartButton(
     price,
     productGroupId,
     name,
+    quantity,
     variant = "product",
   }: Props,
 ) {
@@ -31,6 +34,7 @@ function AddToCartButton(
     price,
     productGroupId,
     name,
+    quantity,
   });
 
   return (
