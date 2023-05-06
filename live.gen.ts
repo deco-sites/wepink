@@ -17,11 +17,12 @@ import * as $$$$$5 from "./islands/SliderJS.tsx";
 import * as $$$$$6 from "./islands/WishlistButton.tsx";
 import * as $$$$$7 from "./islands/SearchControls.tsx";
 import * as $$$$$8 from "./islands/HasScrolledPastThresholdDataAttributeSetup.tsx";
-import * as $$$$$9 from "./islands/ZoomableImage.tsx";
-import * as $$$$$10 from "./islands/HeaderButton.tsx";
-import * as $$$$$11 from "./islands/HeaderSearchBar.tsx";
-import * as $$$$$12 from "./islands/HeaderModals.tsx";
-import * as $$$$$13 from "./islands/ProductImageZoom.tsx";
+import * as $$$$$9 from "./islands/ProductTags.tsx";
+import * as $$$$$10 from "./islands/ZoomableImage.tsx";
+import * as $$$$$11 from "./islands/HeaderButton.tsx";
+import * as $$$$$12 from "./islands/HeaderSearchBar.tsx";
+import * as $$$$$13 from "./islands/HeaderModals.tsx";
+import * as $$$$$14 from "./islands/ProductImageZoom.tsx";
 import * as $$$$$$$$0 from "./sections/CookieConsent.tsx";
 import * as $$$$$$$$1 from "./sections/WhatsApp.tsx";
 import * as $$$$$$$$2 from "./sections/SearchResult.tsx";
@@ -139,17 +140,18 @@ const manifest = {
     "./islands/AddToCartButton.tsx": $$$$$0,
     "./islands/AddToCartWithQuantity.tsx": $$$$$2,
     "./islands/HasScrolledPastThresholdDataAttributeSetup.tsx": $$$$$8,
-    "./islands/HeaderButton.tsx": $$$$$10,
-    "./islands/HeaderModals.tsx": $$$$$12,
-    "./islands/HeaderSearchBar.tsx": $$$$$11,
-    "./islands/ProductImageZoom.tsx": $$$$$13,
+    "./islands/HeaderButton.tsx": $$$$$11,
+    "./islands/HeaderModals.tsx": $$$$$13,
+    "./islands/HeaderSearchBar.tsx": $$$$$12,
+    "./islands/ProductImageZoom.tsx": $$$$$14,
+    "./islands/ProductTags.tsx": $$$$$9,
     "./islands/SearchControls.tsx": $$$$$7,
     "./islands/ShippingSimulation.tsx": $$$$$3,
     "./islands/ShowMoreProducts.tsx": $$$$$1,
     "./islands/SliderJS.tsx": $$$$$5,
     "./islands/TabsControlSetup.tsx": $$$$$4,
     "./islands/WishlistButton.tsx": $$$$$6,
-    "./islands/ZoomableImage.tsx": $$$$$9,
+    "./islands/ZoomableImage.tsx": $$$$$10,
   },
   "sections": {
     "$live/sections/PageInclude.tsx": i2$$$9,

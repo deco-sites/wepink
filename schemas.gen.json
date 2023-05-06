@@ -4895,6 +4895,22 @@
         }
       }
     },
+    "Li9pc2xhbmRzL1Byb2R1Y3RUYWdzLnRzeA==": {
+      "title": "./islands/ProductTags.tsx",
+      "type": "object",
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/ProductTags.tsx"
+          ],
+          "default": "./islands/ProductTags.tsx"
+        }
+      }
+    },
     "Li9pc2xhbmRzL1NlYXJjaENvbnRyb2xzLnRzeA==": {
       "title": "./islands/SearchControls.tsx",
       "type": "object",
@@ -6091,6 +6107,9 @@
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL1Byb2R1Y3RJbWFnZVpvb20udHN4"
+        },
+        {
+          "$ref": "#/definitions/Li9pc2xhbmRzL1Byb2R1Y3RUYWdzLnRzeA=="
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL1NlYXJjaENvbnRyb2xzLnRzeA=="

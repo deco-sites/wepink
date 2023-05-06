@@ -10,14 +10,14 @@ import {
 import SliderJS from "deco-sites/fashion/components/ui/SliderJS.tsx";
 import Text from "deco-sites/fashion/components/ui/Text.tsx";
 import AddToCartWithQuantity from "deco-sites/fashion/islands/AddToCartWithQuantity.tsx";
-import ShippingSimulation from "deco-sites/fashion/islands/ShippingSimulation.tsx";
+import TabsControlSetup from "deco-sites/fashion/islands/TabsControlSetup.tsx";
 import { formatPrice } from "deco-sites/fashion/sdk/format.ts";
 import { useOffer } from "deco-sites/fashion/sdk/useOffer.ts";
 import type { ProductDetailsPage } from "deco-sites/std/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 import Image from "deco-sites/std/components/Image.tsx";
 import { useId } from "preact/hooks";
-import TabsControlSetup from "deco-sites/fashion/islands/TabsControlSetup.tsx";
+import ProductDescription from "deco-sites/fashion/components/product/ProductDescription.tsx";
 
 import ProductImageZoom from "deco-sites/fashion/islands/ProductImageZoom.tsx";
 import ZoomableImage from "deco-sites/fashion/islands/ZoomableImage.tsx";
@@ -140,19 +140,8 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
         </ul>
       </div>
       {/* Description card */}
-      <div id="description" class="mt-4 sm:mt-6">
-        <div>
-          <button data-tab-button>tab1</button>
-          <button data-tab-button>tab2</button>
-          <button data-tab-button>tab3</button>
-        </div>
-        <div>
-          <div data-tab-content>tab1</div>
-          <div data-tab-content>tab2</div>
-          <div data-tab-content>tab3</div>
-        </div>
-        <TabsControlSetup rootId="description" />
-      </div>
+      {description && <ProductDescription description={description} />}
+
       <ViewSendEvent
         event={{
           name: "view_item",
