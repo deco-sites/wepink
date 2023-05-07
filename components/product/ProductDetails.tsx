@@ -3,21 +3,22 @@ import ViewSendEvent from "deco-sites/fashion/components/ViewSendEvent.tsx";
 import Breadcrumb from "deco-sites/fashion/components/ui/Breadcrumb.tsx";
 import Button from "deco-sites/fashion/components/ui/Button.tsx";
 import Container from "deco-sites/fashion/components/ui/Container.tsx";
+import BuyTogether from "deco-sites/fashion/islands/BuyTogether.tsx";
 import {
   Slider,
   SliderDots,
 } from "deco-sites/fashion/components/ui/Slider.tsx";
+import type { Product } from "deco-sites/std/commerce/types.ts";
+import ProductDescription from "deco-sites/fashion/components/product/ProductDescription.tsx";
 import SliderJS from "deco-sites/fashion/components/ui/SliderJS.tsx";
 import Text from "deco-sites/fashion/components/ui/Text.tsx";
 import AddToCartWithQuantity from "deco-sites/fashion/islands/AddToCartWithQuantity.tsx";
-import TabsControlSetup from "deco-sites/fashion/islands/TabsControlSetup.tsx";
 import { formatPrice } from "deco-sites/fashion/sdk/format.ts";
 import { useOffer } from "deco-sites/fashion/sdk/useOffer.ts";
 import type { ProductDetailsPage } from "deco-sites/std/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 import Image from "deco-sites/std/components/Image.tsx";
 import { useId } from "preact/hooks";
-import ProductDescription from "deco-sites/fashion/components/product/ProductDescription.tsx";
 
 import ProductImageZoom from "deco-sites/fashion/islands/ProductImageZoom.tsx";
 import ZoomableImage from "deco-sites/fashion/islands/ZoomableImage.tsx";
@@ -27,10 +28,10 @@ export type Variant = "front-back" | "slider" | "auto";
 export interface Props {
   page: LoaderReturnType<ProductDetailsPage | null>;
   /**
-   * @title Product view
-   * @description Ask for the developer to remove this option since this is here to help development only and should not be used in production
+   * @title Buy Togheter
+   * @description Products to be shown in the buy together section
    */
-  variant?: Variant;
+  buyTogether: LoaderReturnType<Product[] | null>;
 }
 
 const WIDTH = 600;
@@ -52,7 +53,12 @@ function NotFound() {
   );
 }
 
-function ProductInfo({ page }: { page: ProductDetailsPage }) {
+function ProductInfo(
+  { page, buyTogether }: {
+    page: ProductDetailsPage;
+    buyTogether: Product[] | null;
+  },
+) {
   const {
     breadcrumbList,
     product,
@@ -86,7 +92,8 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
           {description}
         </span>
       </div>
-      {/* Ratings */}
+
+      {/* Mocked Ratings */}
       <div class="text-xs flex items-center gap-1 mb-2">
         <strong>4.8 de 5</strong>
         <Image
@@ -139,8 +146,16 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
           <li>Anti-aging, previne o envelhecimento e formação de rugas</li>
         </ul>
       </div>
+
       {/* Description card */}
       {description && <ProductDescription description={description} />}
+
+      {/* Buy together */}
+      {buyTogether && (
+        <div class="mt-8 mx-auto w-fit">
+          <BuyTogether currentProduct={product} buyTogether={buyTogether} />
+        </div>
+      )}
 
       <ViewSendEvent
         event={{
@@ -163,7 +178,8 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
 
 function Details({
   page,
-}: { page: ProductDetailsPage }) {
+  buyTogether,
+}: { page: ProductDetailsPage; buyTogether: Product[] | null }) {
   const id = `product-image-gallery:${useId()}`;
   const { product: { image: images = [] } } = page;
 
@@ -173,7 +189,7 @@ function Details({
         id={id}
         class="grid grid-cols-1 md:grid-cols-[55%_45%] gap-4 md:gap-8"
       >
-        <div class="flex gap-4">
+        <div class="flex gap-4 h-fit sticky top-[168px]">
           {/* Dots */}
           <SliderDots class="gap-2 sm:justify-start overflow-auto sm:px-0 flex-col">
             {images.map((img, _) => (
@@ -187,7 +203,7 @@ function Details({
           </SliderDots>
 
           {/* Image Slider */}
-          <div class="relative md:w-[calc(100vw*692/1920)] flex-grow-1">
+          <div class="relative md:w-[calc(100vw*692/1920)] flex-grow-1 h-fit">
             <Slider class="gap-6 ">
               {images.map((img, index) => (
                 <ZoomableImage
@@ -205,19 +221,11 @@ function Details({
               ))}
             </Slider>
           </div>
-
-          <div class="absolute top-2 right-2 bg-base-100 rounded-full">
-            <ProductImageZoom
-              images={images}
-              width={1280}
-              height={1280 * HEIGHT / WIDTH}
-            />
-          </div>
         </div>
 
         {/* Product Info */}
         <div class="px-4 sm:px-8">
-          <ProductInfo page={page} />
+          <ProductInfo page={page} buyTogether={buyTogether} />
         </div>
       </div>
       <SliderJS rootId={id}></SliderJS>
@@ -225,10 +233,10 @@ function Details({
   );
 }
 
-function ProductDetails({ page, variant: maybeVar = "auto" }: Props) {
+function ProductDetails({ page, buyTogether }: Props) {
   return (
     <Container class="py-0 sm:py-10">
-      {page ? <Details page={page} /> : <NotFound />}
+      {page ? <Details page={page} buyTogether={buyTogether} /> : <NotFound />}
     </Container>
   );
 }

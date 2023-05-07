@@ -40,6 +40,7 @@ export type AvailableIcons =
   | "FooterInstagram"
   | "FooterFacebook"
   | "ArrowTop"
+  | "Check"
   | "ArrowRight";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
