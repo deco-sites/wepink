@@ -20,7 +20,7 @@ function AddToCartWithQuantity({ ...addToCartProps }: Props) {
   };
 
   return (
-    <div class="flex flex-row border-2 border-primary rounded-xl">
+    <div class="flex flex-row border-2 border-primary md:rounded-xl">
       <div class="flex-1 flex justify-center items-center">
         <Button
           class="!h-8 !w-8 text-white bg-primary !rounded-full text-sm font-normal"
@@ -39,7 +39,7 @@ function AddToCartWithQuantity({ ...addToCartProps }: Props) {
         </Button>
       </div>
       <Button
-        class="flex-1 w-full h-[52px] text-xl"
+        class="flex-1 w-full h-[52px] text-xl max-md:!rounded-none"
         {...addToCartButtonProps}
       >
         Comprar

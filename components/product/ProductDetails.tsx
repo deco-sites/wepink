@@ -76,10 +76,12 @@ function ProductInfo(
   return (
     <>
       {/* Breadcrumb */}
-      <Breadcrumb
-        itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
-        productName={name}
-      />
+      <div class="hidden md:block">
+        <Breadcrumb
+          itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
+          productName={name}
+        />
+      </div>
       {/* Code and name */}
       <div class="mt-4 sm:mt-3 mb-3">
         <h1>
@@ -122,7 +124,7 @@ function ProductInfo(
       </div>
       {/* Add to Cart and quantity selector */}
       {seller && (
-        <div class="mb-[54px]">
+        <div class="fixed z-10 bottom-0 left-0 w-full bg-white md:static md:mb-[54px] md:w-auto">
           <AddToCartWithQuantity
             skuId={productID}
             sellerId={seller}
@@ -134,7 +136,7 @@ function ProductInfo(
         </div>
       )}
       {/* Benefits */}
-      <div class="bg-secondary py-[34px] px-6 rounded-xl">
+      <div class="max-md:w-[100vw] max-md:-ml-6 bg-secondary py-[34px] px-6 md:rounded-xl">
         <h3 class="text-primary text-2xl font-bold">Benefícios</h3>
         <ul class="text-white text-sm font-bold list-disc py-5 px-4 leading-[26px]">
           <li>Estimula a renovação celular</li>
@@ -181,17 +183,24 @@ function Details({
   buyTogether,
 }: { page: ProductDetailsPage; buyTogether: Product[] | null }) {
   const id = `product-image-gallery:${useId()}`;
-  const { product: { image: images = [] } } = page;
+  const { product: { name, image: images = [] } } = page;
 
   return (
     <>
+      {/* Breadcrumb */}
+      <div class="md:hidden px-6 py-4">
+        <Breadcrumb
+          itemListElement={page.breadcrumbList?.itemListElement.slice(0, -1)}
+          productName={name}
+        />
+      </div>
       <div
         id={id}
-        class="grid grid-cols-1 md:grid-cols-[55%_45%] gap-4 md:gap-8"
+        class="flex flex-col md:grid grid-cols-1 md:grid-cols-[55%_45%] gap-4 md:gap-8"
       >
-        <div class="flex gap-4 h-fit sticky top-[168px]">
+        <div class="md:flex gap-4 h-fit md:sticky md:top-[168px]">
           {/* Dots */}
-          <SliderDots class="gap-2 sm:justify-start overflow-auto sm:px-0 flex-col">
+          <SliderDots class="hidden md:flex gap-2 sm:justify-start overflow-auto sm:px-0 flex-col">
             {images.map((img, _) => (
               <Image
                 class="rounded-xl w-[calc(100vw*177/1920)] aspect-square"
@@ -224,7 +233,7 @@ function Details({
         </div>
 
         {/* Product Info */}
-        <div class="px-4 sm:px-8">
+        <div class="px-6 sm:px-8">
           <ProductInfo page={page} buyTogether={buyTogether} />
         </div>
       </div>
@@ -235,7 +244,7 @@ function Details({
 
 function ProductDetails({ page, buyTogether }: Props) {
   return (
-    <Container class="py-0 sm:py-10">
+    <Container class="pb-10 sm:py-10 sm:pb-12">
       {page ? <Details page={page} buyTogether={buyTogether} /> : <NotFound />}
     </Container>
   );

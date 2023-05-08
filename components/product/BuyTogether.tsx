@@ -51,7 +51,7 @@ function ProductCard(
 
   return (
     <div
-      class="flex gap-x-7 border border-[#efefef] rounded-xl overflow-hidden w-full group"
+      class="flex gap-x-3.5 md:gap-x-7 border border-[#efefef] rounded-xl overflow-hidden w-full group"
       data-checked={isSelected}
       data-current={isCurrentProduct}
     >
@@ -69,7 +69,7 @@ function ProductCard(
           <strong>{formatPrice(price, offers!.priceCurrency!)}</strong>
         </span>
       </div>
-      <div class="w-[74px] flex-shrink-0 grid place-items-center border-l border-[#efefef] group-data-[current=true]:invisible">
+      <div class="w-[65px] md:w-[74px] flex-shrink-0 grid place-items-center border-l border-[#efefef] group-data-[current=true]:invisible">
         <Button
           variant="outline"
           class="!h-[27px] !w-[27px] !p-0 !border-primary !text-white bg-transparent group-data-[checked=true]:bg-primary !rounded-md"
