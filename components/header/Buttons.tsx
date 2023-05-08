@@ -84,7 +84,7 @@ function CartButton() {
         class="text-black md:text-primary"
       />
       {totalItems && (
-        <span class="absolute text-[9px] right-0 top-0 rounded-full bg-secondary text-secondary-content w-4 h-4 flex items-center justify-center">
+        <span class="absolute text-xs -right-2 md:-right-2.5 -top-1.5 md:-top-2 !font-normal rounded-full bg-primary text-primary-content w-5 h-5 flex items-center justify-center">
           {totalItems}
         </span>
       )}

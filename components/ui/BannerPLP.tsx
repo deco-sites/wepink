@@ -31,35 +31,30 @@ function BannerUI({ banner }: { banner: Banner }) {
   const { title, subtitle, image } = banner;
 
   return (
-    <div class="grid grid-cols-1 grid-rows-1">
+    <div class="grid grid-cols-1 grid-rows-1 md:py-4">
       <Picture preload class="col-start-1 col-span-1 row-start-1 row-span-1">
         <Source
           src={image.mobile}
-          width={360}
-          height={120}
+          width={375}
+          height={96}
           media="(max-width: 767px)"
         />
         <Source
           src={image.desktop}
           width={1440}
-          height={200}
+          height={130}
           media="(min-width: 767px)"
         />
         <img class="w-full" src={image.desktop} alt={image.alt ?? title} />
       </Picture>
 
-      <Container class="flex flex-col items-center justify-center sm:items-start col-start-1 col-span-1 row-start-1 row-span-1 w-full">
+      <div class="flex flex-col items-center justify-center  col-start-1 col-span-1 row-start-1 row-span-1 w-full">
         <h1>
-          <Text variant="heading-1" tone="base-100">
+          <span class="text-5xl md:text-3xl text-primary md:text-white font-bold font-title">
             {title}
-          </Text>
+          </span>
         </h1>
-        <h2>
-          <Text variant="heading-3" tone="base-100">
-            {subtitle}
-          </Text>
-        </h2>
-      </Container>
+      </div>
     </div>
   );
 }

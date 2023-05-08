@@ -17,6 +17,7 @@ export interface Props {
   /**
    * @description Number of products per line on grid
    */
+  title?: string;
   columns: Columns;
 }
 
@@ -30,13 +31,14 @@ function NotFound() {
 
 function Result({
   page,
+  title,
 }: Omit<Props, "page"> & { page: ProductListingPage }) {
   const { products } = page;
 
   return (
     <>
       <Container class="mb-5 sm:mb-0 px-4 sm:py-10">
-        <SectionTitle title="uma linha completa pra você" />
+        {title && <SectionTitle title={title} />}
 
         <ProductGallery products={products} />
 

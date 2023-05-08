@@ -36,55 +36,58 @@ function CartItem({ index }: Props) {
   const isGift = sellingPrice < 0.01;
 
   return (
-    <div class="flex flex-row justify-between items-start gap-4">
+    <div class="relative flex flex-row justify-between items-start gap-7">
       <Image
         src={imageUrl}
         alt={skuName}
-        width={108}
-        height={150}
+        width={80}
+        height={80}
         class="object-cover object-center"
       />
       <div class="flex-grow">
-        <Text variant="body">
+        <span class="block h-8 mb-2 text-xs font-bold">
           {name}
-        </Text>
-        <div class="flex items-center gap-2">
-          <Text class="line-through" tone="base-300" variant="list-price">
-            {formatPrice(listPrice / 100, currencyCode!, locale)}
-          </Text>
-          <Text tone="secondary" variant="caption">
-            {isGift
-              ? "Grátis"
-              : formatPrice(sellingPrice / 100, currencyCode!, locale)}
-          </Text>
-        </div>
-        <div class="mt-6 max-w-min">
-          <QuantitySelector
-            disabled={loading.value || isGift}
-            quantity={quantity}
-            onChange={(quantity) => {
-              updateItems({ orderItems: [{ index, quantity }] });
-              const quantityDiff = quantity - item.quantity;
+        </span>
+        <div class="flex justify-between">
+          <div class="max-w-min">
+            <QuantitySelector
+              disabled={loading.value || isGift}
+              quantity={quantity}
+              onChange={(quantity) => {
+                updateItems({ orderItems: [{ index, quantity }] });
+                const quantityDiff = quantity - item.quantity;
 
-              if (!cart.value) return;
+                if (!cart.value) return;
 
-              window.DECO_SITES_STD.sendAnalyticsEvent({
-                name: quantityDiff < 0 ? "remove_from_cart" : "add_to_cart",
-                params: {
-                  items: mapItemsToAnalyticsItems({
-                    items: [{
-                      ...item,
-                      quantity: Math.abs(quantityDiff),
-                    }],
-                    marketingData: cart.value.marketingData,
-                  }),
-                },
-              });
-            }}
-          />
+                window.DECO_SITES_STD.sendAnalyticsEvent({
+                  name: quantityDiff < 0 ? "remove_from_cart" : "add_to_cart",
+                  params: {
+                    items: mapItemsToAnalyticsItems({
+                      items: [{
+                        ...item,
+                        quantity: Math.abs(quantityDiff),
+                      }],
+                      marketingData: cart.value.marketingData,
+                    }),
+                  },
+                });
+              }}
+            />
+          </div>
+          <div class="flex flex-col items-end">
+            <span class="text-base-300 line-through text-xs">
+              {formatPrice(listPrice / 100, currencyCode!, locale)}
+            </span>
+            <span class="text-primary text-[17px] font-bold">
+              {isGift
+                ? "Grátis"
+                : formatPrice(sellingPrice / 100, currencyCode!, locale)}
+            </span>
+          </div>
         </div>
       </div>
       <Button
+        class="absolute !bg-base-300 !rounded-full !h-4 !w-4 !px-0 opacity-50 top-0 right-0"
         onClick={() => {
           updateItems({ orderItems: [{ index, quantity: 0 }] });
           if (!cart.value) return;
@@ -100,9 +103,14 @@ function CartItem({ index }: Props) {
         }}
         disabled={loading.value || isGift}
         loading={loading.value}
-        variant="icon"
       >
-        <Icon id="Trash" width={20} height={20} />
+        <Icon
+          id="XMark"
+          class="text-white"
+          height={14}
+          width={14}
+          strokeWidth={1}
+        />
       </Button>
     </div>
   );

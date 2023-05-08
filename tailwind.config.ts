@@ -78,6 +78,7 @@ export default {
       md: "0px 1px 5px 0px #00000024",
       lg: "0px 4px 10px 0px #0000001F",
       xl: "10px 10px 20px #ddd",
+      "2xl": "0 0 12px rgba(0,0,0,.15)",
     },
     fontFamily: {
       title: ["Century Gothic", "Montserrat", "sans-serif"],

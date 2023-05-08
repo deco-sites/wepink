@@ -34,8 +34,8 @@ const sectionStyles = {
 };
 
 const containerStyles = {
-  "sidebar-right": "h-full sm:max-w-lg w-[95vw]",
-  "sidebar-left": "h-full sm:max-w-lg w-[95vw]",
+  "sidebar-right": "h-full sm:w-[383px] w-[85vw]",
+  "sidebar-left": "h-full sm:w-[383px] w-[95vw]",
   center: "w-full",
 };
 
