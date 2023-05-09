@@ -34,6 +34,7 @@ function BlogPosts({ posts }: Props) {
               src={image}
               alt={title}
               width={404}
+              height={269}
               class="mb-5 sm:mb-7 rounded-3xl aspect w-full"
             />
             <div class="border rounded-full w-fit px-2 py-1 mb-5 sm:mb-7 border-base-300 text-[10px]">
