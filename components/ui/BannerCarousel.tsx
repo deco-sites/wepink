@@ -55,7 +55,8 @@ function BannerItem({ image, lcp }: { image: Banner; lcp?: boolean }) {
             media="(max-width: 767px)"
             fetchPriority={lcp ? "high" : "auto"}
             src={mobile}
-            width={360}
+            width={375}
+            height={450}
           />
           <Source
             media="(min-width: 768px)"
