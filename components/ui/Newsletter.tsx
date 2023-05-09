@@ -7,7 +7,7 @@ function Newsletter() {
         </h4>
         <form action="" class="flex items-center gap-1.5 sm:gap-[30px]">
           <input
-            class="h-[34px] sm:h-[52px] flex-1 rounded-full px-4 text-black placeholder:text-black"
+            class="h-[34px] max-sm:w-[calc(100%-32px)] sm:h-[52px] flex-1 rounded-full px-4 text-black placeholder:text-black"
             type="text"
             placeholder="seu e-mail"
           />
