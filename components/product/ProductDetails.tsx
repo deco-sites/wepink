@@ -68,10 +68,13 @@ function ProductInfo(
     productID,
     offers,
     name,
-    gtin,
     isVariantOf,
   } = product;
   const { price, listPrice, seller, installments } = useOffer(offers);
+
+  const shortDescription = isVariantOf?.additionalProperty?.find((property) =>
+    property.name === "descricao_curta"
+  )?.value;
 
   return (
     <>
@@ -91,7 +94,7 @@ function ProductInfo(
       {/* Code and name */}
       <div class="mb-3">
         <span class="text-sm">
-          {description}
+          {shortDescription}
         </span>
       </div>
 

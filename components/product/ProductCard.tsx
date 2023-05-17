@@ -24,10 +24,14 @@ function ProductCard({ product, preload, itemListName }: Props) {
     name,
     image: images,
     offers,
-    description,
+    isVariantOf,
   } = product;
   const [front, back] = images ?? [];
   const { listPrice, price, seller, installments } = useOffer(offers);
+
+  const shortDescription = isVariantOf?.additionalProperty?.find((property) =>
+    property.name === "descricao_curta"
+  )?.value;
 
   return (
     <div
@@ -65,7 +69,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
             {name}
           </Text>
           <Text variant="caption" class="block pb-2">
-            {description}
+            {shortDescription}
           </Text>
           <Text
             class="line-through block mb-1 !font-bold"
