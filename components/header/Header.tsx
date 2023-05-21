@@ -1,3 +1,5 @@
+import type { HTML } from "deco-sites/std/components/types.ts";
+
 import Modals from "deco-sites/fashion/islands/HeaderModals.tsx";
 import type { Image } from "deco-sites/std/components/types.ts";
 import type { EditableProps as SearchbarProps } from "deco-sites/wepink/components/search/SearchBar.tsx";
@@ -18,7 +20,7 @@ export interface NavItem {
 }
 
 export interface Props {
-  alerts: string[];
+  alerts: HTML[];
   /** @title Search Bar */
   searchBar?: SearchbarProps;
   /**
@@ -26,12 +28,6 @@ export interface Props {
    * @description Navigation items used both on mobile and desktop menus
    */
   navItems?: NavItem[];
-
-  /**
-   * @title Product suggestions
-   * @description Product suggestions displayed on search
-   */
-  products?: LoaderReturnType<Product[] | null>;
 
   /**
    * @title Enable Top Search terms
@@ -43,12 +39,11 @@ function Header(
   {
     alerts,
     searchBar: _searchBar,
-    products,
     navItems = [],
     suggestions,
   }: Props,
 ) {
-  const searchBar = { ..._searchBar, products, suggestions };
+  const searchBar = { ..._searchBar, suggestions };
   return (
     <header id="header" class="h-[102px] lg:h-[128px]">
       <div class="fixed w-full z-50">

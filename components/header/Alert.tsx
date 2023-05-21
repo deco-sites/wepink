@@ -1,10 +1,12 @@
+import type { HTML } from "deco-sites/std/components/types.ts";
+
 import Text from "deco-sites/fashion/components/ui/Text.tsx";
 import SliderControllerJS from "deco-sites/fashion/islands/SliderJS.tsx";
 import { Slider } from "deco-sites/fashion/components/ui/Slider.tsx";
 import { useId } from "preact/hooks";
 
 export interface Props {
-  alerts: string[];
+  alerts: HTML[];
   /**
    * @title Autoplay interval
    * @description time (in seconds) to start the carousel autoplay
@@ -20,12 +22,11 @@ function Alert({ alerts = [], interval = 5 }: Props) {
       <Slider class="bg-primary gap-6 scrollbar-none">
         {alerts.map((alert) => (
           <Text
-            class="flex justify-center items-center w-screen h-11"
+            class="flex justify-center items-center w-screen h-11 [&_a]:underline"
             variant="caption"
             tone="primary-content"
-          >
-            {alert}
-          </Text>
+            dangerouslySetInnerHTML={{ __html: alert }}
+          />
         ))}
       </Slider>
 
