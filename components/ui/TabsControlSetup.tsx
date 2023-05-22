@@ -5,8 +5,6 @@ const setup = ({ rootId }: { rootId: string }) => {
   const tabButtons = root?.querySelectorAll(`[data-tab-button]`);
   const tabContents = root?.querySelectorAll(`[data-tab-content]`);
 
-  console.log({ root, tabButtons, tabContents, rootId });
-
   if (
     !root || !tabButtons || !tabContents || tabButtons.length === 0 ||
     tabContents.length === 0

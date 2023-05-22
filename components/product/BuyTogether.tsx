@@ -93,8 +93,6 @@ function BuyTogether({ currentProduct, buyTogether }: Props) {
   const bestInstallmentOption = cartSimulation &&
     getBestInstallmentOption(cartSimulation);
 
-  console.log("bestInstallmentOption", bestInstallmentOption);
-
   const subtotal = selectedProducts.reduce((acc, product) => {
     const { offers } = product;
     const { price } = useOffer(offers);

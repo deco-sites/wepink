@@ -1,9 +1,7 @@
-import Text from "deco-sites/fashion/components/ui/Text.tsx";
-import Container from "deco-sites/fashion/components/ui/Container.tsx";
-import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
+import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
-import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
+import type { ProductListingPage } from "deco-sites/wepink/types/types.ts";
 
 export interface Banner {
   /** @description RegExp to enable this banner on the current URL. Use /feminino/* to display this banner on feminino category  */
@@ -64,17 +62,12 @@ function BannerUI({ banner }: { banner: Banner }) {
  * This way we can remove the need for a loader. This can be done on live@1.x
  */
 function Banner({ page, banners = [] }: Props) {
-  if (!page || page.breadcrumb.itemListElement.length === 0) {
+  if (!page) {
     return null;
   }
 
-  const { item: canonical } = page
-    .breadcrumb
-    .itemListElement
-    .reduce((curr, acc) => curr.position > acc.position ? curr : acc);
-
   const matching = banners.find(({ matcher }) =>
-    new RegExp(matcher).test(canonical)
+    new RegExp(matcher).test(page.pathName)
   );
 
   if (!matching) {

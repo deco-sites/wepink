@@ -69,6 +69,7 @@ function ProductInfo(
     offers,
     name,
     isVariantOf,
+    additionalProperty,
   } = product;
   const { price, listPrice, seller, installments } = useOffer(offers);
 
@@ -186,7 +187,7 @@ function Details({
   buyTogether,
 }: { page: ProductDetailsPage; buyTogether: Product[] | null }) {
   const id = `product-image-gallery:${useId()}`;
-  const { product: { name, image: images = [] } } = page;
+  const { product: { name, image: images = [], isVariantOf } } = page;
 
   return (
     <>
@@ -201,28 +202,37 @@ function Details({
         id={id}
         class="flex flex-col md:grid grid-cols-1 md:grid-cols-[55%_45%] gap-4 md:gap-8"
       >
-        <div class="md:flex gap-4 h-fit md:sticky md:top-[168px]">
+        <div class="md:flex justify-between h-fit md:sticky md:top-[168px]">
           {/* Dots */}
-          <SliderDots class="hidden md:flex gap-2 sm:justify-start overflow-auto sm:px-0 flex-col">
-            {images.map((img, _) => (
-              <Image
-                class="rounded-xl w-[calc(100vw*177/1920)] aspect-square"
-                width={177}
-                src={img.url!}
-                alt={img.alternateName}
-              />
-            ))}
-          </SliderDots>
+          <div class="relative hidden md:block overflow-auto sm:px-0">
+            <SliderDots
+              class="gap-2 flex flex-col sm:justify-start h-[calc(100vw*600/1920)] w-[calc(100vw*177/1920)] scrollbar-none pb-[60px]"
+              snap="w-[calc(100vw*177/1920)]"
+            >
+              {images.map((img, _) => (
+                <Image
+                  class="rounded-xl w-[calc(100vw*177/1920)] aspect-square"
+                  width={177}
+                  src={img.url!}
+                  alt={img.alternateName}
+                />
+              ))}
+            </SliderDots>
+            <div class="w-full h-[60px] bg-gradient-to-b from-transparent to-white absolute bottom-0 left-0" />
+          </div>
 
           {/* Image Slider */}
-          <div class="relative md:w-[calc(100vw*692/1920)] flex-grow-1 h-fit">
-            <Slider class="gap-6 ">
+          <div class="relative md:w-[calc(100vw*600/1920)] flex-grow-1 h-fit">
+            <Slider
+              class="gap-6 scrollbar-none"
+              snap="md:w-[calc(100vw*600/1920)] snap-center"
+            >
               {images.map((img, index) => (
                 <ZoomableImage
                   factor={2}
                   type="click"
                   src={img.url!}
-                  class="snap-center md:w-[calc(100vw*692/1920)] aspect-square cursor-zoom-in"
+                  class="snap-center md:w-[calc(100vw*600/1920)] aspect-square cursor-zoom-in"
                   alt={img.alternateName}
                   width={WIDTH}
                   height={HEIGHT}

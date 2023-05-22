@@ -29,24 +29,29 @@ export function Slider({
   );
 }
 
-type SliderDotsProps = JSX.IntrinsicElements["ol"];
+type SliderDotsProps = JSX.IntrinsicElements["ol"] & {
+  snap?: string;
+};
 
-export function SliderDots({ children, class: _class }: SliderDotsProps) {
+export function SliderDots({ children, snap, class: _class }: SliderDotsProps) {
   return (
     <ol
       class={`flex items-center justify-center overflow-auto overscroll-contain snap-x snap-mandatory ${_class}`}
     >
-      {Children.map(children, (child, index) => (
-        <li class="snap-center block">
-          <button
-            data-dot={index}
-            aria-label={`go to slider item ${index}`}
-            class="block focus:outline-none group"
-          >
-            {child}
-          </button>
-        </li>
-      ))}
+      {Children.map(
+        children,
+        (child, index) => (
+          <li class={`snap-center block ${snap}`}>
+            <button
+              data-dot={index}
+              aria-label={`go to slider item ${index}`}
+              class="block focus:outline-none group"
+            >
+              {child}
+            </button>
+          </li>
+        ),
+      )}
     </ol>
   );
 }

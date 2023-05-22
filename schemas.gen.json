@@ -1473,27 +1473,6 @@
               "default": "deco-sites/std/functions/vtexWishlist.ts"
             }
           }
-        },
-        {
-          "title": "deco-sites/wepink/functions/vtexProductListingPage.ts",
-          "type": "object",
-          "allOf": [
-            {
-              "$ref": "#/definitions/ZGVjby1zaXRlcy93ZXBpbmsvZnVuY3Rpb25zL3Z0ZXhQcm9kdWN0TGlzdGluZ1BhZ2UudHM=@Props"
-            }
-          ],
-          "required": [
-            "__resolveType"
-          ],
-          "properties": {
-            "__resolveType": {
-              "type": "string",
-              "enum": [
-                "deco-sites/wepink/functions/vtexProductListingPage.ts"
-              ],
-              "default": "deco-sites/wepink/functions/vtexProductListingPage.ts"
-            }
-          }
         }
       ]
     },
@@ -2156,6 +2135,117 @@
         "count"
       ],
       "title": "deco-sites/std/functions/vtexWishlist.ts@Props"
+    },
+    "ZGVjby1zaXRlcy93ZXBpbmsvdHlwZXMvdHlwZXMudHM=@ProductListingPage": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string",
+          "const": "ProductListingPage",
+          "title": "@type"
+        },
+        "breadcrumb": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@BreadcrumbList",
+          "title": "Breadcrumb"
+        },
+        "filters": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@FilterRange|FilterToggle[]",
+          "title": "Filters"
+        },
+        "products": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]",
+          "title": "Products"
+        },
+        "pageInfo": {
+          "type": "object",
+          "properties": {
+            "currentPage": {
+              "type": "number",
+              "title": "Current Page"
+            },
+            "nextPage": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Next Page"
+            },
+            "previousPage": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Previous Page"
+            }
+          },
+          "required": [
+            "currentPage",
+            "nextPage",
+            "previousPage"
+          ],
+          "title": "Page Info"
+        },
+        "sortOptions": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@SortOption[]",
+          "title": "Sort Options"
+        },
+        "pathName": {
+          "type": "string",
+          "title": "Path Name"
+        }
+      },
+      "required": [
+        "@type",
+        "breadcrumb",
+        "filters",
+        "products",
+        "pageInfo",
+        "sortOptions",
+        "pathName"
+      ],
+      "title": "ProductListingPage"
+    },
+    "ZGVjby1zaXRlcy93ZXBpbmsvdHlwZXMvdHlwZXMudHM=@ProductListingPage|null": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/Resolvable"
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy93ZXBpbmsvdHlwZXMvdHlwZXMudHM=@ProductListingPage"
+        },
+        {
+          "type": "null"
+        },
+        {
+          "title": "deco-sites/wepink/functions/vtexProductListingPage.ts",
+          "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy93ZXBpbmsvZnVuY3Rpb25zL3Z0ZXhQcm9kdWN0TGlzdGluZ1BhZ2UudHM=@Props"
+            }
+          ],
+          "required": [
+            "__resolveType"
+          ],
+          "properties": {
+            "__resolveType": {
+              "type": "string",
+              "enum": [
+                "deco-sites/wepink/functions/vtexProductListingPage.ts"
+              ],
+              "default": "deco-sites/wepink/functions/vtexProductListingPage.ts"
+            }
+          }
+        }
+      ]
     },
     "ZGVjby1zaXRlcy93ZXBpbmsvZnVuY3Rpb25zL3Z0ZXhQcm9kdWN0TGlzdGluZ1BhZ2UudHM=@Props": {
       "type": "object",
@@ -3043,7 +3133,7 @@
       "type": "object",
       "properties": {
         "page": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@ProductListingPage|null",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy93ZXBpbmsvdHlwZXMvdHlwZXMudHM=@ProductListingPage|null",
           "title": "Page"
         },
         "banners": {

@@ -1,9 +1,7 @@
 import type { LoaderFunction } from "$live/types.ts";
 
-import type {
-  Filter,
-  ProductListingPage,
-} from "deco-sites/std/commerce/types.ts";
+import type { Filter } from "deco-sites/std/commerce/types.ts";
+import type { ProductListingPage } from "deco-sites/wepink/types/types.ts";
 import { createClient } from "deco-sites/std/commerce/vtex/client.ts";
 import {
   filtersFromSearchParams,
@@ -222,6 +220,7 @@ const plpLoader: LoaderFunction<
         previousPage: hasPreviousPage ? `?${previousPage}` : undefined,
         currentPage: page,
       },
+      pathName: url.pathname,
       sortOptions,
     },
   };
