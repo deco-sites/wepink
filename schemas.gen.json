@@ -4144,6 +4144,80 @@
       "required": [],
       "title": "deco-sites/wepink/components/ui/LinkTree.tsx@Props"
     },
+    "ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3REZXRhaWxzLnRzeA==@Tag": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "Name"
+        },
+        "description": {
+          "type": "string",
+          "title": "Description"
+        }
+      },
+      "required": [
+        "name",
+        "description"
+      ],
+      "title": "Tag"
+    },
+    "ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3REZXRhaWxzLnRzeA==@Tag[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3REZXRhaWxzLnRzeA==@Tag"
+      },
+      "title": "Tag[]"
+    },
+    "ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3REZXRhaWxzLnRzeA==@ProductInfos": {
+      "type": "object",
+      "properties": {
+        "tagsTitle": {
+          "type": "string",
+          "title": "Tags Title"
+        },
+        "tags": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3REZXRhaWxzLnRzeA==@Tag[]",
+          "title": "Tags"
+        },
+        "howToUse": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+          "title": "How To Use"
+        }
+      },
+      "required": [
+        "tagsTitle",
+        "tags",
+        "howToUse"
+      ],
+      "title": "ProductInfos"
+    },
+    "ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3REZXRhaWxzLnRzeA==@ProductsInfos": {
+      "type": "object",
+      "properties": {
+        "productId": {
+          "type": "string",
+          "title": "Product Id",
+          "description": "Product id where the infos will be shown"
+        },
+        "infos": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3REZXRhaWxzLnRzeA==@ProductInfos",
+          "title": "Infos"
+        }
+      },
+      "required": [
+        "productId",
+        "infos"
+      ],
+      "title": "ProductsInfos"
+    },
+    "ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3REZXRhaWxzLnRzeA==@ProductsInfos[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3REZXRhaWxzLnRzeA==@ProductsInfos"
+      },
+      "title": "ProductsInfos[]"
+    },
     "ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3REZXRhaWxzLnRzeA==@Props": {
       "type": "object",
       "properties": {
@@ -4155,11 +4229,17 @@
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]|null",
           "title": "Buy Together",
           "description": "Products to be shown in the buy together section"
+        },
+        "productsInfos": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy9wcm9kdWN0L1Byb2R1Y3REZXRhaWxzLnRzeA==@ProductsInfos[]",
+          "title": "Products Infos",
+          "description": "Infos to be shown in the product page"
         }
       },
       "required": [
         "page",
-        "buyTogether"
+        "buyTogether",
+        "productsInfos"
       ],
       "title": "deco-sites/wepink/components/product/ProductDetails.tsx@Props"
     },

@@ -4,6 +4,7 @@ import Breadcrumb from "deco-sites/fashion/components/ui/Breadcrumb.tsx";
 import Button from "deco-sites/fashion/components/ui/Button.tsx";
 import Container from "deco-sites/fashion/components/ui/Container.tsx";
 import BuyTogether from "deco-sites/fashion/islands/BuyTogether.tsx";
+import type { HTML } from "deco-sites/std/components/types.ts";
 import {
   Slider,
   SliderDots,
@@ -25,6 +26,37 @@ import ZoomableImage from "deco-sites/fashion/islands/ZoomableImage.tsx";
 
 export type Variant = "front-back" | "slider" | "auto";
 
+export interface Tag {
+  name: string;
+  description: string;
+}
+export interface ProductInfos {
+  /**
+   * @title Tags Title
+   */
+  tagsTitle: string;
+  /**
+   * @title Tags
+   */
+  tags: Tag[];
+  /**
+   * @title How to use
+   */
+  howToUse: HTML;
+}
+
+export interface ProductsInfos {
+  /**
+   * @title Product Id
+   * @description Product id where the infos will be shown
+   */
+  productId: string;
+  /**
+   * @title Infos
+   */
+  infos: ProductInfos;
+}
+
 export interface Props {
   page: LoaderReturnType<ProductDetailsPage | null>;
   /**
@@ -32,6 +64,11 @@ export interface Props {
    * @description Products to be shown in the buy together section
    */
   buyTogether: LoaderReturnType<Product[] | null>;
+  /**
+   * @title Product Infos
+   * @description Infos to be shown in the product page
+   */
+  productsInfos: ProductsInfos[];
 }
 
 const WIDTH = 600;
@@ -54,8 +91,9 @@ function NotFound() {
 }
 
 function ProductInfo(
-  { page, buyTogether }: {
+  { page, buyTogether, infos }: {
     page: ProductDetailsPage;
+    infos?: ProductInfos;
     buyTogether: Product[] | null;
   },
 ) {
@@ -64,6 +102,7 @@ function ProductInfo(
     product,
   } = page;
   const {
+    identifier,
     description,
     productID,
     offers,
@@ -154,7 +193,12 @@ function ProductInfo(
       </div>
 
       {/* Description card */}
-      {description && <ProductDescription description={description} />}
+      {description && (
+        <ProductDescription
+          description={description}
+          productInfos={infos}
+        />
+      )}
 
       {/* Buy together */}
       {buyTogether && (
@@ -185,9 +229,16 @@ function ProductInfo(
 function Details({
   page,
   buyTogether,
-}: { page: ProductDetailsPage; buyTogether: Product[] | null }) {
+  productsInfos,
+}: {
+  page: ProductDetailsPage;
+  buyTogether: Product[] | null;
+  productsInfos: ProductsInfos[];
+}) {
   const id = `product-image-gallery:${useId()}`;
-  const { product: { name, image: images = [], isVariantOf } } = page;
+  const { product: { name, image: images = [], productID } } = page;
+  const infos = productsInfos.find((product) => product.productId === productID)
+    ?.infos;
 
   return (
     <>
@@ -247,7 +298,11 @@ function Details({
 
         {/* Product Info */}
         <div class="px-6 sm:px-8">
-          <ProductInfo page={page} buyTogether={buyTogether} />
+          <ProductInfo
+            page={page}
+            buyTogether={buyTogether}
+            infos={infos}
+          />
         </div>
       </div>
       <SliderJS rootId={id}></SliderJS>
@@ -255,10 +310,18 @@ function Details({
   );
 }
 
-function ProductDetails({ page, buyTogether }: Props) {
+function ProductDetails({ page, buyTogether, productsInfos }: Props) {
   return (
     <Container class="pb-10 sm:py-10 sm:pb-12">
-      {page ? <Details page={page} buyTogether={buyTogether} /> : <NotFound />}
+      {page
+        ? (
+          <Details
+            page={page}
+            buyTogether={buyTogether}
+            productsInfos={productsInfos}
+          />
+        )
+        : <NotFound />}
     </Container>
   );
 }
