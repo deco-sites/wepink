@@ -53,8 +53,14 @@ function ProductDescription({ description }: Props) {
         </button>
       </div>
       <div class="py-6">
-        <div data-tab-content data-active class="hidden data-[active]:block">
-          {description}
+        <div
+          data-tab-content
+          data-active
+          class="hidden data-[active]:block"
+          dangerouslySetInnerHTML={{
+            __html: description,
+          }}
+        >
         </div>
         <div data-tab-content class="hidden data-[active]:block">
           <ProductTags tags={tags} />

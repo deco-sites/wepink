@@ -22,8 +22,9 @@ import * as $$$$$10 from "./islands/ZoomableImage.tsx";
 import * as $$$$$11 from "./islands/BuyTogether.tsx";
 import * as $$$$$12 from "./islands/HeaderButton.tsx";
 import * as $$$$$13 from "./islands/HeaderSearchBar.tsx";
-import * as $$$$$14 from "./islands/HeaderModals.tsx";
-import * as $$$$$15 from "./islands/ProductImageZoom.tsx";
+import * as $$$$$14 from "./islands/Ratings.tsx";
+import * as $$$$$15 from "./islands/HeaderModals.tsx";
+import * as $$$$$16 from "./islands/ProductImageZoom.tsx";
 import * as $$$$$$$$0 from "./sections/CookieConsent.tsx";
 import * as $$$$$$$$1 from "./sections/WhatsApp.tsx";
 import * as $$$$$$$$2 from "./sections/SearchResult.tsx";
@@ -43,6 +44,7 @@ import * as $$$$$$$$15 from "./sections/ProductDetails.tsx";
 import * as $$$$$$$$16 from "./sections/DesignSystem.tsx";
 import * as $$$$$$$$17 from "./sections/ProductShelf.tsx";
 import * as $$$$$$$$18 from "./sections/BlogPosts.tsx";
+import * as $$$$$$$$19 from "./sections/Ratings.tsx";
 import * as $live_middleware from "$live/routes/_middleware.ts";
 import * as $live_workbench from "$live/routes/live/workbench.ts";
 import * as $live_invoke from "$live/routes/live/invoke/index.ts";
@@ -143,10 +145,11 @@ const manifest = {
     "./islands/BuyTogether.tsx": $$$$$11,
     "./islands/HasScrolledPastThresholdDataAttributeSetup.tsx": $$$$$8,
     "./islands/HeaderButton.tsx": $$$$$12,
-    "./islands/HeaderModals.tsx": $$$$$14,
+    "./islands/HeaderModals.tsx": $$$$$15,
     "./islands/HeaderSearchBar.tsx": $$$$$13,
-    "./islands/ProductImageZoom.tsx": $$$$$15,
+    "./islands/ProductImageZoom.tsx": $$$$$16,
     "./islands/ProductTags.tsx": $$$$$9,
+    "./islands/Ratings.tsx": $$$$$14,
     "./islands/SearchControls.tsx": $$$$$7,
     "./islands/ShippingSimulation.tsx": $$$$$3,
     "./islands/ShowMoreProducts.tsx": $$$$$1,
@@ -184,6 +187,7 @@ const manifest = {
     "deco-sites/wepink/sections/Newsletter.tsx": $$$$$$$$10,
     "deco-sites/wepink/sections/ProductDetails.tsx": $$$$$$$$15,
     "deco-sites/wepink/sections/ProductShelf.tsx": $$$$$$$$17,
+    "deco-sites/wepink/sections/Ratings.tsx": $$$$$$$$19,
     "deco-sites/wepink/sections/SearchResult.tsx": $$$$$$$$2,
     "deco-sites/wepink/sections/WhatsApp.tsx": $$$$$$$$1,
     "deco-sites/wepink/sections/WishlistGallery.tsx": $$$$$$$$12,

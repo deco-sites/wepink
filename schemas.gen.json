@@ -2453,6 +2453,75 @@
       ],
       "title": "deco-sites/std/commerce/yourViews/client.ts@ConfigYourViews"
     },
+    "ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy91aS9SYXRpbmdzLnRzeA==@Rating": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "Name"
+        },
+        "title": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Title"
+        },
+        "text": {
+          "type": "string",
+          "title": "Text"
+        },
+        "rating": {
+          "type": "number",
+          "title": "Rating"
+        },
+        "recommended": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Recommended"
+        },
+        "notRecommended": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Not Recommended"
+        },
+        "date": {
+          "type": "string",
+          "title": "Date"
+        }
+      },
+      "required": [
+        "name",
+        "text",
+        "rating",
+        "date"
+      ],
+      "title": "Rating"
+    },
+    "ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy91aS9SYXRpbmdzLnRzeA==@Rating[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy91aS9SYXRpbmdzLnRzeA==@Rating"
+      },
+      "title": "Rating[]"
+    },
+    "ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy91aS9SYXRpbmdzLnRzeA==@Props": {
+      "type": "object",
+      "properties": {
+        "ratings": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy91aS9SYXRpbmdzLnRzeA==@Rating[]",
+          "title": "Ratings"
+        }
+      },
+      "required": [
+        "ratings"
+      ],
+      "title": "deco-sites/wepink/components/ui/Ratings.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdnRleC90eXBlcy50cw==@SKU": {
       "type": "object",
       "properties": {
@@ -3669,6 +3738,10 @@
             {
               "type": "string",
               "const": "EmptyCart"
+            },
+            {
+              "type": "string",
+              "const": "Star"
             },
             {
               "type": "string",
@@ -5023,6 +5096,27 @@
         }
       }
     },
+    "Li9pc2xhbmRzL1JhdGluZ3MudHN4": {
+      "title": "./islands/Ratings.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy91aS9SYXRpbmdzLnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/Ratings.tsx"
+          ],
+          "default": "./islands/Ratings.tsx"
+        }
+      }
+    },
     "Li9pc2xhbmRzL1NlYXJjaENvbnRyb2xzLnRzeA==": {
       "title": "./islands/SearchControls.tsx",
       "type": "object",
@@ -5823,6 +5917,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy93ZXBpbmsvc2VjdGlvbnMvUmF0aW5ncy50c3g=": {
+      "title": "deco-sites/wepink/sections/Ratings.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy93ZXBpbmsvY29tcG9uZW50cy91aS9SYXRpbmdzLnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/wepink/sections/Ratings.tsx"
+          ],
+          "default": "deco-sites/wepink/sections/Ratings.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy93ZXBpbmsvc2VjdGlvbnMvU2VhcmNoUmVzdWx0LnRzeA==": {
       "title": "deco-sites/wepink/sections/SearchResult.tsx",
       "type": "object",
@@ -6227,6 +6342,9 @@
           "$ref": "#/definitions/Li9pc2xhbmRzL1Byb2R1Y3RUYWdzLnRzeA=="
         },
         {
+          "$ref": "#/definitions/Li9pc2xhbmRzL1JhdGluZ3MudHN4"
+        },
+        {
           "$ref": "#/definitions/Li9pc2xhbmRzL1NlYXJjaENvbnRyb2xzLnRzeA=="
         },
         {
@@ -6369,6 +6487,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy93ZXBpbmsvc2VjdGlvbnMvUHJvZHVjdFNoZWxmLnRzeA=="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy93ZXBpbmsvc2VjdGlvbnMvUmF0aW5ncy50c3g="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy93ZXBpbmsvc2VjdGlvbnMvU2VhcmNoUmVzdWx0LnRzeA=="
